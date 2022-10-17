@@ -1,7 +1,24 @@
-// Body
-$body-bg: #f8fafc;
-
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+h1, h2, h3, label, input[type=submit] {
+    font-family: 'Share', cursive;
+}
+h1 {
+    font-size: 26px;
+}
+h2 {
+    font-size: 24px;
+}
+h3, label, input[type=submit] { 
+    font-size: 22px;
+}
+p, li, button, input, textarea, a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+a:hover, button:hover, input[type=submit]:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+$red: #C20309;
+$grey: #738580;
+$lightGrey: #BFCAD0;
+$darkGrey: #3E3E3E;

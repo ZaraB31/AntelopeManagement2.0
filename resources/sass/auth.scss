@@ -1,0 +1,35 @@
+// Variables
+@import 'variables';
+
+body {
+    background-color: $grey;
+}
+main {
+    width: 40%;
+    margin: auto;
+}
+img {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 30px;
+}
+form label, form input{
+    width: 100%;
+}
+form label {
+    color: white;
+}
+form input {
+    margin-bottom: 10px;
+    background-color: $lightGrey;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+form input[type=submit] {
+    background-color: $red;
+    color: white;
+    padding: 5px 15px;
+    width: 102%;
+    margin-top: 15px;
+}
