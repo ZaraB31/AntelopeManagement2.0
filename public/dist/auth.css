@@ -1,12 +1,13 @@
-h1, h2, h3, label, input[type=submit] {
+h1, h2, h3, label, input[type=submit], th {
   font-family: "Share", cursive;
 }
 
 h1 {
   font-size: 26px;
+  margin-top: 0;
 }
 
-h2 {
+h2, th {
   font-size: 24px;
 }
 
@@ -14,7 +15,7 @@ h3, label, input[type=submit] {
   font-size: 22px;
 }
 
-p, li, button, input, textarea, a {
+p, li, button, input, textarea, a, td {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
@@ -22,6 +23,10 @@ p, li, button, input, textarea, a {
 a:hover, button:hover, input[type=submit]:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+li {
+  list-style-type: none;
 }
 
 body {

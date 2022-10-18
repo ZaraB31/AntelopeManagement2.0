@@ -11,6 +11,9 @@
     <title>Antelope Management</title>
 </head>
 <body>
+    <header>
+        @include('includes.navigation')
+    </header>
     <main>
         @yield('content')
     </main>

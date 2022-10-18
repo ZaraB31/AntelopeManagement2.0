@@ -1,28 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>Hello User</h1>
+<section>
+    <table class="fullTable">
+        <tr>
+            <th colspan="3">Upcoming Tasks</th>
+        </tr>
+        <tr>
+            <td>Task Name</td>
+            <td>Project Name</td>
+            <td>Deadline Date</td>
+        </tr>
+        <tr>
+            <td>Task Name</td>
+            <td>Project Name</td>
+            <td>Deadline Date</td>
+        </tr>
+    </table>
+</section>
+<section>
+    <table class="halfTable">
+        <tr>
+            <th>Your Projects</th>
+        </tr>
+        <tr>
+            <td>Project Name</td>
+        </tr>
+    </table>
+</section>
 @endsection
