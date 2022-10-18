@@ -79,5 +79,45 @@ body {
                 float: left;
             }
         }
+        .hiddenForm {
+            background-color: $blueGrey;
+            width: 50vw;
+            box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+            padding: 0 20px;
+            position: fixed;
+            top: 25%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            i {
+                position: absolute;
+                top: 0;
+                right: 20px;
+                margin-top: 1em;
+                font-size: 22px;
+            }
+            i:hover {
+                cursor: pointer;
+            }
+            form {
+                width: 100%;
+                label {
+                    margin-bottom: 5px;
+                }
+                input{
+                    width: 99.3%;
+                    margin-top: 5px;
+                    border: none;
+                    background-color: $grey;
+                    margin-bottom: 1em;
+                    color: white;
+                    padding: 4px;
+                }
+                input[type=submit] {
+                    width: 50%;
+                    float: right;
+                    background-color: $red;
+                }
+            }
+        }
     }
 }

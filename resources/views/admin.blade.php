@@ -19,11 +19,13 @@
     <table class="halfTable">
         <tr>
             <th>User Types</th>
-            <th><button>Add New</button></th>
+            <th><button onClick="openForm('UserTypeCreateForm')">Add New</button></th>
         </tr>
+        @foreach($userTypes as $userType)
         <tr>
-            <td colspan="2">Admin</td>
+            <td colspan="2">{{$userType->userType}}</td>
         </tr>
+        @endforeach
     </table>
 
     <table class="halfTable">
@@ -46,4 +48,17 @@
         </tr>
     </table>
 </section>
+
+<div class="hiddenForm" id="UserTypeCreateForm" style="display:none;">
+    <h3>Add New User Type</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('UserTypeCreateForm')"></i>
+
+    <form action="{{ route('createUserType') }}" method="post">
+        @csrf
+        <label for="userType">User Type:</label>
+        <input type="text" name="userType" id="userType">
+
+        <input type="submit" value="Save">
+    </form>
+</div>
 @endsection

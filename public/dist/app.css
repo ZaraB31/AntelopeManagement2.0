@@ -106,3 +106,43 @@ body main section .halfTable {
   margin-right: 1%;
   float: left;
 }
+body main .hiddenForm {
+  background-color: #C4C4C4;
+  width: 50vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+  padding: 0 20px;
+  position: fixed;
+  top: 25%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+body main .hiddenForm i {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  margin-top: 1em;
+  font-size: 22px;
+}
+body main .hiddenForm i:hover {
+  cursor: pointer;
+}
+body main .hiddenForm form {
+  width: 100%;
+}
+body main .hiddenForm form label {
+  margin-bottom: 5px;
+}
+body main .hiddenForm form input {
+  width: 99.3%;
+  margin-top: 5px;
+  border: none;
+  background-color: #738580;
+  margin-bottom: 1em;
+  color: white;
+  padding: 4px;
+}
+body main .hiddenForm form input[type=submit] {
+  width: 50%;
+  float: right;
+  background-color: #C20309;
+}

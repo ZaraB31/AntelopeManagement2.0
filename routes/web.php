@@ -19,3 +19,5 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'admin']);
 Route::get('/ProjectsDashboard', [App\Http\Controllers\ProjectController::class, 'index']);
 Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'index']);
+
+Route::post('/userType/create', [App\Http\Controllers\UserTypeController::class, 'store'])->name('createUserType');
