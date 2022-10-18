@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserType;
+use App\Models\Employer;
+use App\Models\ProjectType;
 
 class HomeController extends Controller
 {
@@ -29,6 +31,11 @@ class HomeController extends Controller
 
     public function admin() {
         $userTypes = UserType::all();
-        return view('admin', ['userTypes' => $userTypes]);
+        $employers = Employer::all()->sortBy('employer');
+        $projectTypes = ProjectType::all()->sortBy('projectType');
+
+        return view('admin', ['userTypes' => $userTypes,
+                              'employers' => $employers,
+                              'projectTypes' => $projectTypes]);
     }
 }

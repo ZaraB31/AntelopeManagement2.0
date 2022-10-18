@@ -22,3 +22,5 @@ Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'inde
 
 Route::post('/UserType/create', [App\Http\Controllers\UserTypeController::class, 'store'])->name('createUserType');
 Route::post('/Employer/create', [App\Http\Controllers\EmployerController::class, 'store'])->name('createEmployer');
+Route::post('/ProjectType/create', [App\Http\Controllers\ProjectTypeController::class, 'store'])->name('createProjectType');
+

@@ -33,19 +33,23 @@
             <th>Employers</th>
             <th><button onClick="openForm('EmployersCreateForm')">Add New</button></th>
         </tr>
+        @foreach($employers as $employer)
         <tr>
-            <td colspan="2">Mega Electrical</td>
+            <td colspan="2">{{$employer->employer}}</td>
         </tr>
+        @endforeach
     </table>
 
     <table class="halfTable">
         <tr>
             <th>Project Types</th>
-            <th><button>Add New</button></th>
+            <th><button onClick="openForm('ProjectTypeCreateForm')">Add New</button></th>
         </tr>
+        @foreach($projectTypes as $projectType)
         <tr>
-            <td colspan="2">Tender</td>
+            <td colspan="2">{{$projectType->projectType}}</td>
         </tr>
+        @endforeach
     </table>
 </section>
 
@@ -70,6 +74,19 @@
         @csrf
         <label for="employer">Employer name:</label>
         <input type="text" name="employer" id="employer">
+
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+<div class="hiddenForm" id="ProjectTypeCreateForm" style="display:none;">
+    <h3>Add New Project Type</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeCreateForm')"></i>
+
+    <form action="{{ route('createProjectType') }}" method="post">
+        @csrf
+        <label for="projectType">Project Type:</label>
+        <input type="text" name="projectType" id="projectType">
 
         <input type="submit" value="Save">
     </form>
