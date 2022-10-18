@@ -31,7 +31,7 @@
     <table class="halfTable">
         <tr>
             <th>Employers</th>
-            <th><button>Add New</button></th>
+            <th><button onClick="openForm('EmployersCreateForm')">Add New</button></th>
         </tr>
         <tr>
             <td colspan="2">Mega Electrical</td>
@@ -57,6 +57,19 @@
         @csrf
         <label for="userType">User Type:</label>
         <input type="text" name="userType" id="userType">
+
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+<div class="hiddenForm" id="EmployersCreateForm" style="display:none;">
+    <h3>Add New Employer</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('EmployersCreateForm')"></i>
+
+    <form action="{{ route('createEmployer') }}" method="post">
+        @csrf
+        <label for="employer">Employer name:</label>
+        <input type="text" name="employer" id="employer">
 
         <input type="submit" value="Save">
     </form>
