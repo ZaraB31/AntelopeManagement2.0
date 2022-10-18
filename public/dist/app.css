@@ -83,11 +83,15 @@ body main section {
 body main section table {
   border-collapse: collapse;
   color: white;
+  margin-bottom: 20px;
 }
 body main section table th {
   text-align: left;
   padding: 13px 4px;
   background-color: #3E3E3E;
+}
+body main section table th button {
+  float: right;
 }
 body main section table td {
   background-color: #738580;

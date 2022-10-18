@@ -44,6 +44,7 @@ body {
             }
         }
     }
+
     main {
         width: 83vw;
         float: left;
@@ -54,10 +55,14 @@ body {
             table {
                 border-collapse: collapse;
                 color: white;
+                margin-bottom: 20px;
                 th {
                     text-align: left;
                     padding: 13px 4px;
                     background-color: $darkGrey;
+                    button {
+                        float: right;
+                    }
                 }
                 td {
                     background-color: $grey;
