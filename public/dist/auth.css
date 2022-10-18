@@ -36,7 +36,10 @@ main {
 img {
   width: 50%;
   margin-left: 25%;
-  margin-bottom: 30px;
+}
+
+h1 {
+  color: white;
 }
 
 form label, form input {
@@ -49,7 +52,7 @@ form label {
 
 form input {
   margin-bottom: 10px;
-  background-color: #BFCAD0;
+  background-color: #e8f0fe;
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -61,4 +64,9 @@ form input[type=submit] {
   padding: 5px 15px;
   width: 102%;
   margin-top: 15px;
+}
+
+form a {
+  color: #e8f0fe;
+  float: right;
 }
