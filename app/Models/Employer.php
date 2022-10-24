@@ -12,4 +12,12 @@ class Employer extends Model
     protected $fillable = [
         'employer',
     ];
+
+    public function userDetail() {
+        return $this->belongsTo(UserDetail::class);
+    }
+    
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
 }

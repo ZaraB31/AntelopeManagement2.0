@@ -57,6 +57,7 @@ body {
                 border-collapse: collapse;
                 color: white;
                 margin-bottom: 20px;
+                width: 100%;
                 th {
                     text-align: left;
                     padding: 13px 4px;
@@ -69,6 +70,22 @@ body {
                     background-color: $grey;
                     padding: 8px 4px;
                     border-bottom: 2px solid $darkGrey;
+                    i {
+                        float: right;
+                        margin-right: 10px;
+                    }
+                }
+                .hiddenRow {
+                    background-color: $blueGrey;
+                    color: black;
+                    display: none;
+                }
+                .hiddenRow.open {
+                    display: table-cell;
+                }
+                .animate {
+                    transform: rotate(180deg);
+                    margin-top: 5px;
                 }
             }
             .fullTable {
@@ -79,6 +96,11 @@ body {
                 margin-right: 1%;
                 float: left;
             }
+        }
+        .halfSection {
+            width: 49%;
+            margin-right: 1%;
+            float: left;
         }
         .hiddenForm {
             background-color: $blueGrey;

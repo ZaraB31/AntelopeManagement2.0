@@ -16,9 +16,8 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('userType_id')->references('id')->on('user_Types')->onDelete('cascade');
+            $table->foreignId('userType_id')->references('id')->on('user_types')->onDelete('cascade');
             $table->foreignId('employer_id')->references('id')->on('employers')->onDelete('cascade');
-            $table->foreignId('image_id')->references('id')->on('uploads')->onDelete('cascade');
             $table->timestamps();
         });
     }

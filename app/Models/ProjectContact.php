@@ -12,4 +12,12 @@ class ProjectContact extends Model
     protected $fillable = [
         'project_id', 'contact_id',
     ];
+
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function contact() {
+        return $this->belongsTo(Contact::class);
+    }
 }

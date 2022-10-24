@@ -12,4 +12,12 @@ class Company extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function contact() {
+        return $this->belongsTo(Contact::class);
+    }
+
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
 }

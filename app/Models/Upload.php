@@ -12,4 +12,16 @@ class Upload extends Model
     protected $fillable = [
         'name', 'file', 'description',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function taskImage() {
+        return $this->belongsTo(TaskImage::class);
+    }
+
+    public function taskFile() {
+        return $this->belongsTo(TaskFile::class);
+    }
 }

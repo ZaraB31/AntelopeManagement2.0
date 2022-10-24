@@ -12,4 +12,12 @@ class Contact extends Model
     protected $fillable = [
         'name', 'phone', 'email', 'company_id',
     ];
+
+    public function company() {
+        return $this->belongsTo(Comapny::class);
+    }
+
+    public function projectContact() {
+        return $this->belongsTo(ProjectContact::class);
+    }
 }

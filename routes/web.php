@@ -21,6 +21,10 @@ Route::get('/ProjectsDashboard', [App\Http\Controllers\ProjectController::class,
 Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'index']);
 
 Route::post('/UserType/create', [App\Http\Controllers\UserTypeController::class, 'store'])->name('createUserType');
+
 Route::post('/Employer/create', [App\Http\Controllers\EmployerController::class, 'store'])->name('createEmployer');
+
 Route::post('/ProjectType/create', [App\Http\Controllers\ProjectTypeController::class, 'store'])->name('createProjectType');
 
+Route::get('/UserDetails/create', [App\Http\Controllers\UserDetailController::class, 'create'])->name('createUserDetail');
+Route::post('/UserDetails/create', [App\Http\Controllers\UserDetailController::class, 'store'])->name('storeUserDetail');

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\UserType;
 use App\Models\Employer;
 use App\Models\ProjectType;
+use App\Models\User;
+use App\Models\UserDetail;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -33,9 +36,17 @@ class HomeController extends Controller
         $userTypes = UserType::all();
         $employers = Employer::all()->sortBy('employer');
         $projectTypes = ProjectType::all()->sortBy('projectType');
+        $currentUser = Auth::id();
+        $accessLevel = UserDetail::where('user_id', $currentUser)->first();
+        $userDetails = UserDetail::all();
+        $users = User::all();
 
         return view('admin', ['userTypes' => $userTypes,
                               'employers' => $employers,
-                              'projectTypes' => $projectTypes]);
+                              'projectTypes' => $projectTypes,
+                              'currentUser' => $currentUser,
+                              'accessLevel' => $accessLevel,
+                              'userDetails' => $userDetails,
+                              'users' => $users]);
     }
 }

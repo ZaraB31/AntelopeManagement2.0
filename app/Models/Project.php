@@ -12,4 +12,28 @@ class Project extends Model
     protected $fillable = [
         'name', 'description', 'deadline', 'link', 'completed', 'company_id', 'employer_id', 'projectType_id',
     ];
+
+    public function employer() {
+        return $this->belongsTo(Employer::class);
+    }
+
+    public function projectNote() {
+        return $this->belongsTo(ProjectNote::class);
+    }
+
+    public function projectContact() {
+        return $this->belongsTo(ProjectContact::class);
+    }
+
+    public function projectType() {
+        return $this->belongsTo(ProjectType::class);
+    }
+
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function task() {
+        return $this->belongsTo(Task::class);
+    }
 }

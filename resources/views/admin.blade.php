@@ -3,20 +3,36 @@
 @section('title', 'Admin Dashboard')
 
 @section('content')
+@if($accessLevel->userType_id === 1)
 <h1>Admin Dashboard</h1>
-
-<section>
-    <table class="halfTable">
+<section class="halfSection">
+    <table>
         <tr>
             <th>System Users</th>
             <th><button>Add New</button></th>
         </tr>
+        @foreach($users as $user)
         <tr>
-            <td colspan="2">User's name <i class="fa-solid fa-chevron-down"></i></td>
+            <td onClick="tableOpen({{$user->id}})" colspan="2">{{$user->name}}<i id="{{$user->id}} icon" class="fa-solid fa-chevron-down"></i></td>
         </tr>
+        <tr>
+            <td id="{{$user->id}} email" class="hiddenRow" colspan="2"><b>Email: </b>{{$user->email}}</td>
+        </tr>
+        @foreach($userDetails as $userDetail)
+        @if($userDetail->user_id === $user->id)
+        <tr>
+            <td id="{{$user->id}} employer" class="hiddenRow" colspan="2"><b>Employer:</b> {{$userDetail->employer->employer ?? 'None'}}</td>
+        </tr>
+        <tr>
+            <td id="{{$user->id}} type" class="hiddenRow" colspan="2"><b>User Type:</b> {{$userDetail->userType->userType ?? 'None'}}</td>
+        </tr>
+        @endif
+        @endforeach
+        @endforeach
     </table>
-
-    <table class="halfTable">
+</section>
+<section class="halfSection">
+    <table>
         <tr>
             <th>User Types</th>
             <th><button onClick="openForm('UserTypeCreateForm')">Add New</button></th>
@@ -28,7 +44,7 @@
         @endforeach
     </table>
 
-    <table class="halfTable">
+    <table>
         <tr>
             <th>Employers</th>
             <th><button onClick="openForm('EmployersCreateForm')">Add New</button></th>
@@ -40,7 +56,7 @@
         @endforeach
     </table>
 
-    <table class="halfTable">
+    <table>
         <tr>
             <th>Project Types</th>
             <th><button onClick="openForm('ProjectTypeCreateForm')">Add New</button></th>
@@ -91,4 +107,7 @@
         <input type="submit" value="Save">
     </form>
 </div>
+@else
+<h1>Sorry, you do not have access to this page.</h1>
+@endif
 @endsection
