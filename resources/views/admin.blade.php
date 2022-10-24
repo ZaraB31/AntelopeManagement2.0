@@ -13,7 +13,7 @@
         </tr>
         @foreach($users as $user)
         <tr>
-            <td onClick="tableOpen({{$user->id}})" colspan="2">{{$user->name}}<i id="{{$user->id}} icon" class="fa-solid fa-chevron-down"></i></td>
+            <td onClick="usersTableOpen({{$user->id}})" colspan="2">{{$user->name}}<i id="{{$user->id}} icon" class="fa-solid fa-chevron-down"></i></td>
         </tr>
         <tr>
             <td id="{{$user->id}} email" class="hiddenRow" colspan="2"><b>Email: </b>{{$user->email}}</td>

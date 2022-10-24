@@ -28,3 +28,7 @@ Route::post('/ProjectType/create', [App\Http\Controllers\ProjectTypeController::
 
 Route::get('/UserDetails/create', [App\Http\Controllers\UserDetailController::class, 'create'])->name('createUserDetail');
 Route::post('/UserDetails/create', [App\Http\Controllers\UserDetailController::class, 'store'])->name('storeUserDetail');
+
+Route::post('/Company/create', [App\Http\Controllers\CompanyController::class, 'store'])->name('createCompany');
+Route::get('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('createContact');
+Route::post('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'store'])->name('storeContact');

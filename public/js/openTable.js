@@ -1,4 +1,4 @@
-function tableOpen(id) {
+function usersTableOpen(id) {
     var email = id + ' email';
     var employer = id + ' employer';
     var type = id + ' type';
@@ -20,6 +20,4 @@ function tableOpen(id) {
         typ.className = 'hiddenRow';
         ico.className = 'fa-solid fa-chevron-down';
     }
-
-    
 }
