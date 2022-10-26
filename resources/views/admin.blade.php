@@ -74,7 +74,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('UserTypeCreateForm')"></i>
 
     <form action="{{ route('createUserType') }}" method="post">
-        @csrf
+        @csrf  @include('includes.error')
         <label for="userType">User Type:</label>
         <input type="text" name="userType" id="userType">
 
@@ -87,7 +87,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('EmployersCreateForm')"></i>
 
     <form action="{{ route('createEmployer') }}" method="post">
-        @csrf
+        @csrf  @include('includes.error')
         <label for="employer">Employer name:</label>
         <input type="text" name="employer" id="employer">
 
@@ -100,7 +100,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeCreateForm')"></i>
 
     <form action="{{ route('createProjectType') }}" method="post">
-        @csrf
+        @csrf  @include('includes.error')
         <label for="projectType">Project Type:</label>
         <input type="text" name="projectType" id="projectType">
 

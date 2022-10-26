@@ -17,10 +17,10 @@ class UserTypeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user_types')->insert(
-            ['userType' => 'Admin'],
-            ['userType' => 'Office Staff'],
-            ['userType' => 'Electrican'],
-        );
+        $userTypes = [['userType' => 'Admin'],
+                      ['userType' => 'Office Staff'],
+                      ['userType' => 'Electrican']];
+
+        DB::table('user_types')->insert($userTypes);
     }
 }

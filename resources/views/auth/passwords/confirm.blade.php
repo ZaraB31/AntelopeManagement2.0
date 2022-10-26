@@ -7,7 +7,7 @@
 <h1>Please confirm your password before continuing.</h1>
 
 <form method="POST" action="{{ route('password.confirm') }}">
-    @csrf
+    @csrf  @include('includes.error')
 
     <label for="password">{{ __('Password') }}</label>
 

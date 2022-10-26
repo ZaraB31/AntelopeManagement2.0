@@ -6,7 +6,7 @@
 <h1>Add new company contact - {{$company->company}}</h1>
 <section>
     <form action="" method="post">
-        @csrf 
+        @csrf  @include('includes.error') 
 
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">

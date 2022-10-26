@@ -40,7 +40,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('companyCreateForm')"></i>
 
     <form action="{{ route('createCompany') }}" method="post">
-        @csrf
+        @csrf  @include('includes.error')
         <label for="company">Company:</label>
         <input type="text" name="company" id="company">
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <form method="POST" action="{{ route('password.update') }}">
-    @csrf
+    @csrf  @include('includes.error')
 
     <input type="hidden" name="token" value="{{ $token }}">
 

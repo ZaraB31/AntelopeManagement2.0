@@ -10,7 +10,7 @@
 @endif
 
 <form method="POST" action="{{ route('password.email') }}">
-    @csrf
+    @csrf  @include('includes.error')
 
     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 

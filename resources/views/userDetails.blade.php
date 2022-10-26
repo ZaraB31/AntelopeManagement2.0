@@ -8,7 +8,7 @@
 <h1>Add Extra Details - {{$user->name}}</h1>
 
 <form action="{{ route('storeUserDetail') }}" method="post">
-    @csrf 
+    @csrf  @include('includes.error') 
 
     <input type="text" name="user_id" id="user_id" value="{{$user->id}}" style="display: none;">
 

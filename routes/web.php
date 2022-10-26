@@ -32,3 +32,7 @@ Route::post('/UserDetails/create', [App\Http\Controllers\UserDetailController::c
 Route::post('/Company/create', [App\Http\Controllers\CompanyController::class, 'store'])->name('createCompany');
 Route::get('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('createContact');
 Route::post('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'store'])->name('storeContact');
+
+Route::get('/ProjectDashboard/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('createProject');
+Route::post('/ProjectDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');
+
