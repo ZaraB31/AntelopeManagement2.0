@@ -52,7 +52,7 @@ body {
         margin-left: 150px;
         padding: 20px;
         section {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             article{
                 width: 100%;
             }
@@ -147,16 +147,26 @@ body {
 
         }
         .buttonSection {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             width: 100%;
-            height: 30px;
-            float: right;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h1 {
+                margin: 0;
+            }
             button {
-                float: right;
                 background-color: $red;
                 color: white;
                 border: none;
                 padding: 8px 12px;
+                height: max-content;
+            }
+            h2 {
+                background-color: $red;
+                padding: 10px 16px;
+                color: white;
+                margin: 0;
             }
         }
         
@@ -199,11 +209,30 @@ body {
                     padding: 4px;
                     cursor: pointer;
                 }
+                button {
+                    width: 40%;
+                    background-color: $darkGrey;
+                    font-size: 17px;
+                    border: none;
+                    color: white;
+                    padding: 3px;
+                    margin-top: 5px;
+                }
                 input[type=submit] {
-                    width: 50%;
+                    width: 40%;
                     float: right;
                     background-color: $red;
                 }
+            }
+        }
+        .projectDetails {
+            display: flex;
+            flex-wrap: wrap;
+            p {
+                width: max-content;
+                margin-right: 15px;
+                margin-top: 0;
+                text-align: justify;
             }
         }
         .tab {

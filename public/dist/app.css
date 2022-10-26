@@ -79,7 +79,7 @@ body main {
   padding: 20px;
 }
 body main section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 body main section article {
   width: 100%;
@@ -172,17 +172,28 @@ body main section form button {
   background-color: #3E3E3E;
 }
 body main .buttonSection {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   width: 100%;
-  height: 30px;
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body main .buttonSection h1 {
+  margin: 0;
 }
 body main .buttonSection button {
-  float: right;
   background-color: #C20309;
   color: white;
   border: none;
   padding: 8px 12px;
+  height: -moz-max-content;
+  height: max-content;
+}
+body main .buttonSection h2 {
+  background-color: #C20309;
+  padding: 10px 16px;
+  color: white;
+  margin: 0;
 }
 body main .halfSection {
   width: 49%;
@@ -225,10 +236,30 @@ body main .hiddenForm form input {
   padding: 4px;
   cursor: pointer;
 }
+body main .hiddenForm form button {
+  width: 40%;
+  background-color: #3E3E3E;
+  font-size: 17px;
+  border: none;
+  color: white;
+  padding: 3px;
+  margin-top: 5px;
+}
 body main .hiddenForm form input[type=submit] {
-  width: 50%;
+  width: 40%;
   float: right;
   background-color: #C20309;
+}
+body main .projectDetails {
+  display: flex;
+  flex-wrap: wrap;
+}
+body main .projectDetails p {
+  width: -moz-max-content;
+  width: max-content;
+  margin-right: 15px;
+  margin-top: 0;
+  text-align: justify;
 }
 body main .tab {
   float: left;

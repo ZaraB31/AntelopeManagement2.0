@@ -3,10 +3,12 @@
 @section('title', 'Contact Book')
 
 @section('content')
-<h1>Contact Book</h1> 
+ 
 <section class="buttonSection">
+    <h1>Contact Book</h1>
     <button onClick="openForm('companyCreateForm')">Add New Company</button>
 </section>
+
 <section>
     
     <article>

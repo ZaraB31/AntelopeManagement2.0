@@ -45,4 +45,19 @@ class ProjectController extends Controller
 
         return redirect('/ProjectsDashboard');
     }
+
+    public function show($id) {
+        $project = Project::findOrFail($id);
+
+        return view('projects/show', ['project' => $project]);
+    }
+
+    public function complete(Request $request) {
+        $id = $request['id'];
+        $project = Project::findOrFail($id);
+        $project->completed = "1";
+        $project->update();
+
+        return redirect()->route('showProject', $id);
+    }
 }

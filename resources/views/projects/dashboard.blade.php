@@ -13,7 +13,7 @@
         </tr>
         @foreach($projects as $project)
         <tr>
-            <td>{{$project->name}}</td>
+            <td><a href="/ProjectsDashboard/project/{{$project->id}}">{{$project->name}}</a></td>
             <td>{{$project->company->company}}</td>
             <td>{{$project->projectType->projectType}}</td>
             <td>progress</td>

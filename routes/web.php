@@ -33,6 +33,7 @@ Route::post('/Company/create', [App\Http\Controllers\CompanyController::class, '
 Route::get('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('createContact');
 Route::post('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'store'])->name('storeContact');
 
-Route::get('/ProjectDashboard/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('createProject');
-Route::post('/ProjectDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');
-
+Route::get('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('createProject');
+Route::post('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');
+Route::get('/ProjectsDashboard/project/{id}', [App\Http\Controllers\ProjectController::class, 'show'])->name('showProject');
+Route::post('/ProjectsDashboard/complete', [App\Http\Controllers\ProjectController::class, 'complete'])->name('completeProject');
