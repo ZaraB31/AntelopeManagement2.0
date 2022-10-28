@@ -91,6 +91,10 @@ body {
                         text-decoration: none;
                     }
                 }
+                .noteContent td{
+                    background-color: $blueGrey;
+                    color: black;
+                }
                 .hiddenRow {
                     background-color: $blueGrey;
                     color: black;
@@ -102,6 +106,37 @@ body {
                 .animate {
                     transform: rotate(180deg);
                     margin-top: 5px;
+                }
+                
+            }
+            .tableHeight {
+                thead {
+                    display: table; 
+                    width: 100%;
+                    table-layout: fixed;
+                }
+                tbody {
+                    display: block; 
+                    max-height: 400px; 
+                    overflow-y: scroll;
+                    tr {
+                        display: table; 
+                        width: 100%;
+                        table-layout: fixed;
+                    }
+                    
+                }
+                ::-webkit-scrollbar {
+                    width: 10px;
+                }
+                ::-webkit-scrollbar-track {
+                    background: $lightGrey 
+                }
+                ::-webkit-scrollbar-thumb {
+                    background: $red; 
+                }
+                ::-webkit-scrollbar-thumb:hover {
+                    background: $redHover; 
                 }
             }
             .fullTable {
@@ -151,14 +186,14 @@ body {
                     background-color: $red;
                 }
                 input[type=submit]:hover {
-                    background-color: #F4040B;
+                    background-color: $redHover;
                 }
                 button {
                     background-color: $darkGrey;
                     
                 }
                 button:hover {
-                    background-color: #585858;        
+                    background-color: $darkGreyHover;        
                 }
             }
 
@@ -180,7 +215,7 @@ body {
                 height: max-content;
             }
             button:hover {
-                background-color: #F4040B;
+                background-color: $redHover;
             }
             h2 {
                 background-color: $red;
@@ -204,13 +239,13 @@ body {
                 background-color: $darkGrey;
             }
             .edit:hover {
-                background-color: #585858;
+                background-color: $darkGreyHover;
             }
             .delete {
                 background-color: $red;
             }
             .delete:hover {
-                background-color: #F4040B;
+                background-color: $redHover;
             }
         }
         
@@ -227,7 +262,7 @@ body {
             position: fixed;
             top: 25%;
             left: 55%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -40%);
             i {
                 position: absolute;
                 top: 0;
@@ -243,7 +278,7 @@ body {
                 label {
                     margin-bottom: 5px;
                 }
-                input{
+                input, textarea{
                     width: 99.3%;
                     margin-top: 5px;
                     border: none;
@@ -252,6 +287,9 @@ body {
                     color: white;
                     padding: 4px;
                     cursor: pointer;
+                }
+                textarea {
+                    height: 150px;
                 }
                 select {
                     width: 100%;
@@ -269,7 +307,7 @@ body {
                     margin-top: 5px;
                 }
                 button:hover {
-                    background-color: #585858;
+                    background-color: $darkGreyHover;
                 }
                 input[type=submit] {
                     width: 40%;
@@ -277,7 +315,7 @@ body {
                     background-color: $red;
                 }
                 input[type=submit]:hover {
-                    background-color: #F4040B;
+                    background-color: $redHover;
                 }
             }
         }
@@ -310,7 +348,7 @@ body {
                 border-bottom: 1px solid white;
             }
             button:hover {
-                background-color: #585858;
+                background-color: $darkGreyHover;
             }
             button.active {
                 background-color: $red;
@@ -347,7 +385,7 @@ body {
                 }
             }
             button:hover {
-                background-color: #F4040B;
+                background-color: $redHover;
             }
             .tabContact {
                 height: max-content;

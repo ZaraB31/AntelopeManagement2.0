@@ -29,21 +29,39 @@
 </section>
 
 <section class="halfSection">
-
-    <table>
-        <tr>
-            <th>Tasks</th>
-            <th><button>Add New</button></th>
-        </tr>
+    <table class="tableHeight"> 
+        <thead>
+            <tr>
+                <th>Tasks</th>
+                <th><button>Add New</button></th>
+            </tr>
+        </thead> 
+        <tbody colspan="2">
+            <tr>
+                <td>Test</td>
+            </tr>
+        </tbody> 
     </table>
 </section>
 
 <section class="halfSection">
-    <table>
-        <tr>
-            <th>Notes</th>
-            <th><button>Add New</button></th>
-        </tr>
+    <table class="tableHeight"> 
+        <thead>
+            <tr>
+                <th>Notes</th>
+                <th><button onClick="openForm('CreateNoteForm')">Add New</button></th>
+            </tr>
+        </thead> 
+        <tbody colspan="2"> 
+            @foreach($projectNotes as $note)
+            <tr>
+                <td>{{$note->user->name}} - {{date('j F Y, g:i a', strtotime($note->created_at))}}</td>
+            </tr>
+            <tr class="noteContent">
+                <td>{{$note->note}}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </section>
 
@@ -101,6 +119,22 @@
             </optgroup>
             @endforeach
         </select>
+
+        <button>Cancel</button>
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+<div class="hiddenForm" id="CreateNoteForm" style="display:none;">
+    <h3>Add Note</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('CreateNoteForm')"></i>
+
+    <form action="{{ route('addNote') }}" method="post">
+        @csrf  @include('includes.error')
+        
+        <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
+
+        <textarea name="note" id="note"></textarea>
 
         <button>Cancel</button>
         <input type="submit" value="Save">

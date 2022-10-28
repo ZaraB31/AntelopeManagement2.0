@@ -120,6 +120,10 @@ body main section table td a {
   color: white;
   text-decoration: none;
 }
+body main section table .noteContent td {
+  background-color: #C4C4C4;
+  color: black;
+}
 body main section table .hiddenRow {
   background-color: #C4C4C4;
   color: black;
@@ -131,6 +135,33 @@ body main section table .hiddenRow.open {
 body main section table .animate {
   transform: rotate(180deg);
   margin-top: 5px;
+}
+body main section .tableHeight thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+body main section .tableHeight tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+body main section .tableHeight tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+body main section .tableHeight ::-webkit-scrollbar {
+  width: 10px;
+}
+body main section .tableHeight ::-webkit-scrollbar-track {
+  background: #e8f0fe;
+}
+body main section .tableHeight ::-webkit-scrollbar-thumb {
+  background: #C20309;
+}
+body main section .tableHeight ::-webkit-scrollbar-thumb:hover {
+  background: #F4040B;
 }
 body main section .fullTable {
   width: 100%;
@@ -251,7 +282,7 @@ body main .hiddenForm {
   position: fixed;
   top: 25%;
   left: 55%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
 }
 body main .hiddenForm i {
   position: absolute;
@@ -269,7 +300,7 @@ body main .hiddenForm form {
 body main .hiddenForm form label {
   margin-bottom: 5px;
 }
-body main .hiddenForm form input {
+body main .hiddenForm form input, body main .hiddenForm form textarea {
   width: 99.3%;
   margin-top: 5px;
   border: none;
@@ -278,6 +309,9 @@ body main .hiddenForm form input {
   color: white;
   padding: 4px;
   cursor: pointer;
+}
+body main .hiddenForm form textarea {
+  height: 150px;
 }
 body main .hiddenForm form select {
   width: 100%;

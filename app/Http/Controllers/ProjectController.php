@@ -9,6 +9,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Employer;
 use App\Models\ProjectContact;
+use App\Models\ProjectNote;
 
 class ProjectController extends Controller
 {
@@ -53,11 +54,13 @@ class ProjectController extends Controller
         $companies = Company::all();
         $contacts = Contact::all();
         $projectContacts = ProjectContact::where('project_id', $id)->get();
+        $projectNotes = ProjectNote::where('project_id', $id)->get()->sortByDesc('created_at');
 
         return view('projects/show', ['project' => $project,
                                       'companies' => $companies,
                                       'contacts' => $contacts,
-                                      'projectContacts' => $projectContacts]);
+                                      'projectContacts' => $projectContacts,
+                                      'projectNotes' => $projectNotes]);
     }
 
     public function complete(Request $request) {
