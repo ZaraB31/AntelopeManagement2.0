@@ -97,10 +97,16 @@ body main section table th {
 }
 body main section table button {
   float: right;
+  background-color: #C4C4C4;
+  border: none;
+  padding: 2px 10px;
 }
 body main section table button a {
   text-decoration: none;
   color: black;
+}
+body main section table button:hover {
+  background-color: #ABABAB;
 }
 body main section table td {
   background-color: #738580;
@@ -109,6 +115,10 @@ body main section table td {
 }
 body main section table td i {
   margin-left: 10px;
+}
+body main section table td a {
+  color: white;
+  text-decoration: none;
 }
 body main section table .hiddenRow {
   background-color: #C4C4C4;
@@ -168,8 +178,14 @@ body main section form input[type=submit] {
   float: right;
   background-color: #C20309;
 }
+body main section form input[type=submit]:hover {
+  background-color: #F4040B;
+}
 body main section form button {
   background-color: #3E3E3E;
+}
+body main section form button:hover {
+  background-color: #585858;
 }
 body main .buttonSection {
   margin-bottom: 15px;
@@ -189,11 +205,38 @@ body main .buttonSection button {
   height: -moz-max-content;
   height: max-content;
 }
+body main .buttonSection button:hover {
+  background-color: #F4040B;
+}
 body main .buttonSection h2 {
   background-color: #C20309;
   padding: 10px 16px;
   color: white;
   margin: 0;
+}
+body main .actionButtons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+body main .actionButtons .edit, body main .actionButtons .delete {
+  padding: 8px 16px;
+  border: none;
+  font-size: 18px;
+  color: white;
+  width: 120px;
+}
+body main .actionButtons .edit {
+  background-color: #3E3E3E;
+}
+body main .actionButtons .edit:hover {
+  background-color: #585858;
+}
+body main .actionButtons .delete {
+  background-color: #C20309;
+}
+body main .actionButtons .delete:hover {
+  background-color: #F4040B;
 }
 body main .halfSection {
   width: 49%;
@@ -236,6 +279,12 @@ body main .hiddenForm form input {
   padding: 4px;
   cursor: pointer;
 }
+body main .hiddenForm form select {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  margin-bottom: 10px;
+}
 body main .hiddenForm form button {
   width: 40%;
   background-color: #3E3E3E;
@@ -245,10 +294,16 @@ body main .hiddenForm form button {
   padding: 3px;
   margin-top: 5px;
 }
+body main .hiddenForm form button:hover {
+  background-color: #585858;
+}
 body main .hiddenForm form input[type=submit] {
   width: 40%;
   float: right;
   background-color: #C20309;
+}
+body main .hiddenForm form input[type=submit]:hover {
+  background-color: #F4040B;
 }
 body main .projectDetails {
   display: flex;
@@ -260,6 +315,9 @@ body main .projectDetails p {
   margin-right: 15px;
   margin-top: 0;
   text-align: justify;
+}
+body main .projectDetails p:nth-last-child(1) {
+  margin-bottom: 0;
 }
 body main .tab {
   float: left;
@@ -276,6 +334,9 @@ body main .tab button {
   color: white;
   padding: 10px 0;
   border-bottom: 1px solid white;
+}
+body main .tab button:hover {
+  background-color: #585858;
 }
 body main .tab button.active {
   background-color: #C20309;
@@ -313,6 +374,9 @@ body main .tabContent button {
 body main .tabContent button a {
   color: white;
   text-decoration: none;
+}
+body main .tabContent button:hover {
+  background-color: #F4040B;
 }
 body main .tabContent .tabContact {
   height: -moz-max-content;

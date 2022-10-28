@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\ProjectType;
 use App\Models\Company;
+use App\Models\Contact;
 use App\Models\Employer;
+use App\Models\ProjectContact;
 
 class ProjectController extends Controller
 {
@@ -48,8 +50,14 @@ class ProjectController extends Controller
 
     public function show($id) {
         $project = Project::findOrFail($id);
+        $companies = Company::all();
+        $contacts = Contact::all();
+        $projectContacts = ProjectContact::where('project_id', $id)->get();
 
-        return view('projects/show', ['project' => $project]);
+        return view('projects/show', ['project' => $project,
+                                      'companies' => $companies,
+                                      'contacts' => $contacts,
+                                      'projectContacts' => $projectContacts]);
     }
 
     public function complete(Request $request) {

@@ -37,3 +37,5 @@ Route::get('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController:
 Route::post('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');
 Route::get('/ProjectsDashboard/project/{id}', [App\Http\Controllers\ProjectController::class, 'show'])->name('showProject');
 Route::post('/ProjectsDashboard/complete', [App\Http\Controllers\ProjectController::class, 'complete'])->name('completeProject');
+
+Route::post('/ProjectsDashboard/project/linkContact', [App\Http\Controllers\ProjectContactController::class, 'store'])->name('linkContact');

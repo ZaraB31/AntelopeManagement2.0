@@ -14,7 +14,7 @@ class Contact extends Model
     ];
 
     public function company() {
-        return $this->belongsTo(Comapny::class);
+        return $this->belongsTo(Company::class);
     }
 
     public function projectContact() {
