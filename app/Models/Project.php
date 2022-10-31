@@ -10,7 +10,7 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'deadline', 'completed', 'company_id', 'employer_id', 'projectType_id',
+        'name', 'description', 'deadline', 'completed', 'user_id', 'company_id', 'employer_id', 'projectType_id',
     ];
 
     public function employer() {
@@ -35,5 +35,8 @@ class Project extends Model
 
     public function task() {
         return $this->belongsTo(Task::class);
+    }
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

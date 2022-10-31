@@ -61,4 +61,12 @@ class User extends Authenticatable
     public function userDetail() {
         return $this->belongsTo(UserDetail::class);
     }
+
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function task() {
+        return $this->belongsTo(Task::class);
+    }
 }

@@ -10,6 +10,8 @@ use App\Models\Contact;
 use App\Models\Employer;
 use App\Models\ProjectContact;
 use App\Models\ProjectNote;
+use App\Models\Task;
+use Auth;
 
 class ProjectController extends Controller
 {
@@ -43,6 +45,8 @@ class ProjectController extends Controller
             'description' => 'required',
         ]);
 
+        $user = Auth()->user()->id;
+        $request['user_id'] = $user;
         $input = $request->all();
         Project::create($input);
 
@@ -55,12 +59,14 @@ class ProjectController extends Controller
         $contacts = Contact::all();
         $projectContacts = ProjectContact::where('project_id', $id)->get();
         $projectNotes = ProjectNote::where('project_id', $id)->get()->sortByDesc('created_at');
+        $projectTasks = Task::where('project_id', $id)->get()->sortByDesc('deadline');
 
         return view('projects/show', ['project' => $project,
                                       'companies' => $companies,
                                       'contacts' => $contacts,
                                       'projectContacts' => $projectContacts,
-                                      'projectNotes' => $projectNotes]);
+                                      'projectNotes' => $projectNotes,
+                                      'projectTasks' => $projectTasks]);
     }
 
     public function complete(Request $request) {

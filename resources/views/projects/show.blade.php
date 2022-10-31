@@ -16,10 +16,11 @@
 </section>
 
 <section class="projectDetails">
-    <p><b>Deadline to be completed by:</b> {{ date('j F Y, g:i a', strtotime($project->deadline)) }}</p>
+    <p><b>To be completed by:</b> {{ date('j F Y, g:i a', strtotime($project->deadline)) }}</p>
     <p><b>Overseen By:</b> {{$project->employer->employer}}</p>
     <p><b>Project Type:</b> {{$project->projectType->projectType}}</p>
     <p><b>Company:</b> {{$project->company->company}}</p>
+    <p><b>Created by:</b> {{$project->user->name}}</p>
     <p>{{$project->description}}</p>
 </section>
 
@@ -33,13 +34,16 @@
         <thead>
             <tr>
                 <th>Tasks</th>
-                <th><button>Add New</button></th>
+                <th><button onClick="openForm('CreateTaskForm')">Add New</button></th>
             </tr>
         </thead> 
         <tbody colspan="2">
+            @foreach($projectTasks as $task)
             <tr>
-                <td>Test</td>
+                <td><a href="">{{$task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
+                <td>{{date('j F Y, g:i a', strtotime($task->deadline))}}</td>
             </tr>
+            @endforeach
         </tbody> 
     </table>
 </section>
@@ -52,7 +56,8 @@
                 <th><button onClick="openForm('CreateNoteForm')">Add New</button></th>
             </tr>
         </thead> 
-        <tbody colspan="2"> 
+        <tbody colspan="2">
+            @if($projectNotes->count() > 0) 
             @foreach($projectNotes as $note)
             <tr>
                 <td>{{$note->user->name}} - {{date('j F Y, g:i a', strtotime($note->created_at))}}</td>
@@ -61,6 +66,11 @@
                 <td>{{$note->note}}</td>
             </tr>
             @endforeach
+            @else
+            <tr>
+                <td>No Notes</td>
+            </tr>
+            @endif
         </tbody>
     </table>
 </section>
@@ -71,6 +81,7 @@
             <th colspan="3">Contacts</th>
             <th><button onClick="openForm('LinkContactForm')">Link Contact</button></th>
         </tr>
+        @if($projectContacts->count() > 0)
         @foreach($projectContacts as $projectContact)
         <tr>
             <td>{{$projectContact->contact->company->company}}</td>
@@ -79,6 +90,11 @@
             <td>{{$projectContact->contact->email}}</td>
         </tr>
         @endforeach
+        @else
+        <tr>
+            <td colspan="4">No Contacts Linked</td> 
+        </tr>
+        @endif
     </table>
 </section>
 
@@ -135,6 +151,29 @@
         <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
 
         <textarea name="note" id="note"></textarea>
+
+        <button>Cancel</button>
+        <input type="submit" value="Save">
+    </form>
+</div>
+
+<div class="hiddenForm" id="CreateTaskForm" style="display:none;">
+    <h3>Add Note</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('CreateTaskForm')"></i>
+
+    <form action="{{ route('createTask') }}" method="post">
+        @csrf  @include('includes.error')
+        
+        <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="deadline">Deadline for completion:</label>
+        <input type="datetime-local" name="deadline" id="deadline">
+        
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea>
 
         <button>Cancel</button>
         <input type="submit" value="Save">

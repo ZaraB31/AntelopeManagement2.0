@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class UserSeeder extends Seeder
+class ProjectTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,10 +17,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Zara Bostock',
-            'email' => 'zara.bostock@mega-electrical.co.uk',
-            'password' => 'Password',
-        ]);
+        $projectTypes = [['projectType' => 'Project'],
+                         ['projectType' => 'Tender']];
+        
+        DB::table('project_types')->insert($projectTypes);
     }
 }

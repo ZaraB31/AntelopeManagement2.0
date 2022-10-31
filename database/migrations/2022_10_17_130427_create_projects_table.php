@@ -19,6 +19,7 @@ return new class extends Migration
             $table->longtext('description');
             $table->dateTime('deadline');
             $table->boolean('completed');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreignId('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreignId('employer_id')->references('id')->on('employers')->onDelete('cascade');
             $table->foreignId('projectType_id')->references('id')->on('project_types')->onDelete('cascade');
