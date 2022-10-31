@@ -25,4 +25,10 @@ class TaskController extends Controller
         Task::create($input);
         return redirect()->route('showProject', $id);
     }
+
+    public function show($id) {
+        $task = Task::findOrFail($id);
+
+        return view('tasks/show', ['task' => $task]);
+    }
 }

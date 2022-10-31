@@ -11,8 +11,7 @@
     <button onClick="openForm('ProjectCompleteForm')">Mark as completed</button>
     @else
     <h2>Project completed</h2>
-    @endif  
-    
+    @endif   
 </section>
 
 <section class="projectDetails">
@@ -40,7 +39,7 @@
         <tbody colspan="2">
             @foreach($projectTasks as $task)
             <tr>
-                <td><a href="">{{$task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
+                <td><a href="/ProjectsDashboard/project/task/{{$task->id}}">{{$task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
                 <td>{{date('j F Y, g:i a', strtotime($task->deadline))}}</td>
             </tr>
             @endforeach

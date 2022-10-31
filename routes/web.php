@@ -42,3 +42,4 @@ Route::post('/ProjectsDashboard/project/linkContact', [App\Http\Controllers\Proj
 Route::post('/ProjectsDashboard/project/addNote', [App\Http\Controllers\ProjectNoteController::class, 'store'])->name('addNote');
 
 Route::post('/ProjectsDashboard/project/task/create', [App\Http\Controllers\TaskController::class, 'store'])->name('createTask');
+Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('showTask');
