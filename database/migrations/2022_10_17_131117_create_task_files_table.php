@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('task_id')->references('id')->on('tasks')->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('file_id')->references('id')->on('uploads')->onDelete('cascade');
+            $table->string('name');
+            $table->string('file');
+            $table->string('description');            
             $table->timestamps();
         });
     }

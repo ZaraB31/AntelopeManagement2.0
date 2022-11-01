@@ -36,10 +36,12 @@ Route::post('/Company/{id}/Contact/create', [App\Http\Controllers\ContactControl
 Route::get('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('createProject');
 Route::post('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');
 Route::get('/ProjectsDashboard/project/{id}', [App\Http\Controllers\ProjectController::class, 'show'])->name('showProject');
-Route::post('/ProjectsDashboard/complete', [App\Http\Controllers\ProjectController::class, 'complete'])->name('completeProject');
+Route::post('/ProjectsDashboard/project/complete', [App\Http\Controllers\ProjectController::class, 'complete'])->name('completeProject');
 
 Route::post('/ProjectsDashboard/project/linkContact', [App\Http\Controllers\ProjectContactController::class, 'store'])->name('linkContact');
 Route::post('/ProjectsDashboard/project/addNote', [App\Http\Controllers\ProjectNoteController::class, 'store'])->name('addNote');
 
 Route::post('/ProjectsDashboard/project/task/create', [App\Http\Controllers\TaskController::class, 'store'])->name('createTask');
 Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('showTask');
+Route::post('/ProjectsDashboard/project/task/complete', [App\Http\Controllers\TaskController::class, 'complete'])->name('completeTask');
+Route::post('/ProjectsDashboard/project/task/users', [App\Http\Controllers\TaskUserController::class, 'assignUser'])->name('assignUser');

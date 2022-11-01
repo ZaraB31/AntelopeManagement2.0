@@ -4,6 +4,9 @@
 
 @section('content')
 
+<section class="backButton">
+    <a href="/ProjectsDashboard"><i class="fa-solid fa-arrow-left"></i> Back</a>
+</section>
 
 <section class="buttonSection">
     <h1>{{$project->name}}</h1>
@@ -40,7 +43,11 @@
             @foreach($projectTasks as $task)
             <tr>
                 <td><a href="/ProjectsDashboard/project/task/{{$task->id}}">{{$task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
-                <td>{{date('j F Y, g:i a', strtotime($task->deadline))}}</td>
+                @if($task->completed === 0)
+                <td>In Progress</td>
+                @else
+                <td>Completed</td>
+                @endif
             </tr>
             @endforeach
         </tbody> 
@@ -101,25 +108,44 @@
 
 
 <div class="hiddenForm" id="ProjectCompleteForm" style="display:none;">
+    @if($authUser === $project->user_id)
     <h3>Are you sure you want to mark this project as completed?</h3>
     <p>Once you mark this as completed, it can not be undone.</p>
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectCompleteForm')"></i>
 
     <form action="{{ route('completeProject') }}" method="post">
-        @csrf  @include('includes.error')
-        <input type="text" name="id" id="id" value="{{$project->id}}" style="display:none;">
+        @csrf  
 
-        <button>Cancel</button>
-        <input type="submit" value="Save">
+        <input type="text" name="id" id="id" value="{{$project->id}}" style="display:none;">
+        
+        <input type="submit" value="Complete">
     </form>
+    <button class="cancel" onClick="closeForm('ProjectCompleteForm')">Cancel</button>
+    @else 
+    <h3>You can not mark this project as completed.</h3>
+    <p>This project can only be marked as completed by the user who created it.</p>
+    <button onClick="closeForm('ProjectCompleteForm')">Back</button>
+    @endif
 </div>
+
 
 <div class="hiddenForm" id="LinkContactForm" style="display:none;">
     <h3>Link Project Contact</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('LinkContactForm')"></i>
 
     <form action="{{ route('linkContact') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf 
+        
+        @if ($errors->linkContact->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->linkContact->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
 
         <select name="contact_id" id="contact_id">
@@ -135,33 +161,57 @@
             @endforeach
         </select>
 
-        <button>Cancel</button>
+        
         <input type="submit" value="Save">
     </form>
+    <button class="cancel" onClick="closeForm('LinkContactForm')">Cancel</button>
 </div>
+
 
 <div class="hiddenForm" id="CreateNoteForm" style="display:none;">
     <h3>Add Note</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('CreateNoteForm')"></i>
 
     <form action="{{ route('addNote') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf  
+        
+        @if ($errors->projectNote->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->projectNote->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         
         <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
 
         <textarea name="note" id="note"></textarea>
 
-        <button>Cancel</button>
+        
         <input type="submit" value="Save">
     </form>
+    <button class="cancel" onClick="closeForm('CreateNoteForm')">Cancel</button>
 </div>
+
 
 <div class="hiddenForm" id="CreateTaskForm" style="display:none;">
     <h3>Add Note</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('CreateTaskForm')"></i>
 
     <form action="{{ route('createTask') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf  
+        
+        @if ($errors->projectTask->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->projectTask->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         
         <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
 
@@ -174,8 +224,9 @@
         <label for="description">Description:</label>
         <textarea name="description" id="description"></textarea>
 
-        <button>Cancel</button>
+        
         <input type="submit" value="Save">
     </form>
+    <button class="cancel" onClick="closeForm('CreateTaskForm')">Cancel</button>
 </div>
 @endsection

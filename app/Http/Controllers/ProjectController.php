@@ -12,6 +12,8 @@ use App\Models\ProjectContact;
 use App\Models\ProjectNote;
 use App\Models\Task;
 use Auth;
+use Validator;
+
 
 class ProjectController extends Controller
 {
@@ -60,13 +62,15 @@ class ProjectController extends Controller
         $projectContacts = ProjectContact::where('project_id', $id)->get();
         $projectNotes = ProjectNote::where('project_id', $id)->get()->sortByDesc('created_at');
         $projectTasks = Task::where('project_id', $id)->get()->sortByDesc('deadline');
+        $authUser = Auth()->user()->id;
 
         return view('projects/show', ['project' => $project,
                                       'companies' => $companies,
                                       'contacts' => $contacts,
                                       'projectContacts' => $projectContacts,
                                       'projectNotes' => $projectNotes,
-                                      'projectTasks' => $projectTasks]);
+                                      'projectTasks' => $projectTasks,
+                                      'authUser' => $authUser]);
     }
 
     public function complete(Request $request) {

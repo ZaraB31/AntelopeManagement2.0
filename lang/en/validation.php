@@ -153,9 +153,49 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'company_id' => [
+            'required' => 'A company is required',
         ],
+        'contact_id' => [
+            'required' => 'A contact is required',
+        ],
+        'employer_id' => [
+            'required' => 'A employer is required',
+        ],
+        'project_id' => [
+            'required' => 'A project is required',
+        ],
+        'projectContact_id' => [
+            'required' => 'A contact is required',
+        ],
+        'projectNote_id' => [
+            'required' => 'A note is required',
+        ],
+        'projectType_id' => [
+            'required' => 'A project type is required',
+        ],
+        'task_id' => [
+            'required' => 'A task is required',
+        ],
+        'taskFile_id' => [
+            'required' => 'A file is required',
+        ],
+        'taskImage_id' => [
+            'required' => 'An Image is required',
+        ],
+        'taskNote_id' => [
+            'required' => 'A note is required',
+        ],
+        'taskUser_id' => [
+            'required' => 'A user is required',
+        ],
+        'user_id' => [
+            'required' => 'A user is required',
+        ],
+        'userType_id' => [
+            'required' => 'A user type is required',
+        ],
+
     ],
 
     /*

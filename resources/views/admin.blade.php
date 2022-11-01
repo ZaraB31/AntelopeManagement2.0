@@ -74,7 +74,18 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('UserTypeCreateForm')"></i>
 
     <form action="{{ route('createUserType') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf  
+        
+        @if ($errors->userType->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->userType->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <label for="userType">User Type:</label>
         <input type="text" name="userType" id="userType">
 
@@ -87,7 +98,18 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('EmployersCreateForm')"></i>
 
     <form action="{{ route('createEmployer') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf  
+        
+        @if ($errors->employers->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->employers->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <label for="employer">Employer name:</label>
         <input type="text" name="employer" id="employer">
 
@@ -100,7 +122,18 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeCreateForm')"></i>
 
     <form action="{{ route('createProjectType') }}" method="post">
-        @csrf  @include('includes.error')
+        @csrf  
+        
+        @if ($errors->projectType->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->projectType->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <label for="projectType">Project Type:</label>
         <input type="text" name="projectType" id="projectType">
 
