@@ -46,3 +46,4 @@ Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskCon
 Route::post('/ProjectsDashboard/project/task/complete', [App\Http\Controllers\TaskController::class, 'complete'])->name('completeTask');
 Route::post('/ProjectsDashboard/project/task/users', [App\Http\Controllers\TaskUserController::class, 'assignUser'])->name('assignUser');
 Route::post('/ProjectsDashboard/project/task/note', [App\Http\Controllers\TaskNoteController::class, 'store'])->name('createTaskNote');
+Route::post('/ProjectsDashboard/project/task/image', [App\Http\Controllers\TaskImageController::class, 'store'])->name('createTaskImage');

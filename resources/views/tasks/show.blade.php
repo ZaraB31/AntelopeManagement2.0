@@ -96,14 +96,23 @@
     <table class="tableHeight">
         <thead>
             <tr>
-                <th>Task Photos</th>
-                <th><button>Add Note</button></th>
+                <th>Task Image</th>
+                <th><button onClick="openForm('TaskImageForm')">Add Image</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
+            @if($taskImages->count() > 0)
+            @foreach($taskImages as $image)
             <tr>
-                <td>Example</td>
+                <td>{{$image->name}}</td>
+                <td>{{$image->user->name}}</td>
             </tr>
+            @endforeach
+            @else 
+            <tr>
+                <td>No images uploaded</td>
+            </tr>
+            @endif
         </tbody>
     </table>
 </section>
@@ -170,6 +179,7 @@
     @endif
 </div>
 
+
 <div class="hiddenForm" id="TaskNoteForm" style="display:none;">
     <h3>Add note to task.</h3>
 
@@ -196,5 +206,40 @@
     </form>
 
     <button class="cancel" onClick="closeForm('TaskNoteForm')">Cancel</button>
+</div>
+
+<div class="hiddenForm" id="TaskImageForm" style="display:none;">
+    <h3>Add image to task.</h3>
+
+    <i class="fa-solid fa-xmark" onClick="closeForm('TaskImageForm')"></i>
+
+    <form action="{{ route('createTaskImage') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        @if ($errors->taskImage->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->taskImage->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <label for="name">Image Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file">
+
+        <label for="description">Image Description:</label>
+        <input type="text" name="description" id="description">
+
+        <input type="submit" value="Complete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('TaskImageForm')">Cancel</button>
 </div>
 @endsection
