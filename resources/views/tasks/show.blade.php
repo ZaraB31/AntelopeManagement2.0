@@ -56,13 +56,24 @@
         <thead>
             <tr>
                 <th>Notes</th>
-                <th><button>Add Note</button></th>
+                <th><button onClick="openForm('TaskNoteForm')">Add Note</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
+            @if($taskNotes->count() > 0) 
+            @foreach($taskNotes as $note)
             <tr>
-                <td>Example</td>
+                <td>{{$note->user->name}} - {{date('j F Y, g:i a', strtotime($note->created_at))}}</td>
             </tr>
+            <tr class="noteContent">
+                <td>{{$note->note}}</td>
+            </tr>
+            @endforeach
+            @else
+            <tr>
+                <td>No Notes</td>
+            </tr>
+            @endif
         </tbody>
     </table>
 </section>
@@ -157,5 +168,33 @@
     <p>Users can only be assigned by the task creator.</p>
     <button onClick="closeForm('AssignUserForm')">Back</button>
     @endif
+</div>
+
+<div class="hiddenForm" id="TaskNoteForm" style="display:none;">
+    <h3>Add note to task.</h3>
+
+    <i class="fa-solid fa-xmark" onClick="closeForm('TaskNoteForm')"></i>
+
+    <form action="{{ route('createTaskNote') }}" method="post">
+        @csrf 
+
+        @if ($errors->taskNote->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->taskNote->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <textarea name="note" id="note"></textarea>
+
+        <input type="submit" value="Complete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('TaskNoteForm')">Cancel</button>
 </div>
 @endsection

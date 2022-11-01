@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\TaskUser;
+use App\Models\TaskNote;
 use Auth;
 use Validator;
 
@@ -35,11 +36,13 @@ class TaskController extends Controller
         $authUser = Auth()->user()->id;
         $users = User::all();
         $taskUsers = TaskUser::where('task_id', $id)->get();
+        $taskNotes = TaskNote::where('task_id', $id)->get()->sortByDesc('created_at');
 
         return view('tasks/show', ['task' => $task,
                                    'authUser' => $authUser,
                                    'users' => $users,
-                                   'taskUsers' => $taskUsers]);
+                                   'taskUsers' => $taskUsers,
+                                   'taskNotes' => $taskNotes]);
     }
 
     public function complete(Request $request) {

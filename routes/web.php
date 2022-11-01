@@ -45,3 +45,4 @@ Route::post('/ProjectsDashboard/project/task/create', [App\Http\Controllers\Task
 Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('showTask');
 Route::post('/ProjectsDashboard/project/task/complete', [App\Http\Controllers\TaskController::class, 'complete'])->name('completeTask');
 Route::post('/ProjectsDashboard/project/task/users', [App\Http\Controllers\TaskUserController::class, 'assignUser'])->name('assignUser');
+Route::post('/ProjectsDashboard/project/task/note', [App\Http\Controllers\TaskNoteController::class, 'store'])->name('createTaskNote');
