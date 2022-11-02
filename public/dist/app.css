@@ -171,6 +171,11 @@ body main section .halfTable {
   margin-right: 1%;
   float: left;
 }
+body main section .threeTable {
+  width: 70%;
+  margin-right: 1%;
+  float: left;
+}
 body main section form {
   width: 100%;
 }

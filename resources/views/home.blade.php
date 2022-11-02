@@ -3,32 +3,62 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<h1>Hello User</h1>
+<h1>Hello {{$user->name}}</h1>
 <section>
     <table class="fullTable">
         <tr>
             <th colspan="3">Upcoming Tasks</th>
         </tr>
+        @if($userTasks->count() > 0)
+        @foreach($userTasks->sortBy(function ($task) {
+            return $task->task->deadline;
+        }); as $task)
+        @if($task->task->completed === 1)
         <tr>
-            <td>Task Name   <i class="fa-solid fa-arrow-right"></i></td>
-            <td>Project Name</td>
-            <td>Deadline Date</td>
+            <td><a href="/ProjectsDashboard/project/task/{{$task->task->id}}">{{$task->task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
+            <td>{{$task->task->project->name}}</td>
+            @if($taskTimeLeft[$task->id] === 'Today')
+                <td>Due {{$taskTimeLeft[$task->id]}} ( {{date('j F Y, g:i a', strtotime($task->task->deadline))}} )</td>
+            @elseif($taskTimeLeft[$task->id] === 'Overdue')
+                <td style="background-color:#C20309;">Task {{$taskTimeLeft[$task->id]}} ( {{date('j F Y, g:i a', strtotime($task->task->deadline))}} )</td>
+            @else 
+                <td>Due in {{$taskTimeLeft[$task->id]}} Days ( {{date('j F Y, g:i a', strtotime($task->task->deadline))}} )</td>
+            @endif
         </tr>
+        @endif
+        @endforeach
+        @else 
         <tr>
-            <td>Task Name   <i class="fa-solid fa-arrow-right"></i></td>
-            <td>Project Name</td>
-            <td>Deadline Date</td>
+            <td>No Upcoming Tasks</td>
         </tr>
-    </table>
+        @endif
+        </table>
 </section>
 <section>
-    <table class="halfTable">
+    <table class="threeTable">
         <tr>
-            <th>Your Projects</th>
+            <th colspan="2">Your Projects</th>
         </tr>
+        @if($userProjects->count() > 0)
+        @foreach($userProjects as $project)
+        @if($project->completed === 0)
         <tr>
-            <td>Project Name   <i class="fa-solid fa-arrow-right"></i></td>
+            <td><a href="/ProjectsDashboard/project/{{$project->id}}">{{$project->name}}<i class="fa-solid fa-arrow-right"></i></a></td>
+            @if($projectTimeLeft[$project->id] === 'Today')
+                <td>Due {{$projectTimeLeft[$project->id]}} ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+            @elseif($projectTimeLeft[$project->id] === 'OverDue')
+                <td class="overdue">project {{$projectTimeLeft[$project->id]}} ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+            @else 
+                <td>Due in {{$projectTimeLeft[$project->id]}} Days ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+            @endif
         </tr>
+        @endif
+        @endforeach
+        @else 
+        <tr>
+            <td>No Projects Created</td>
+        </tr>
+        @endif
     </table>
 </section>
 @endsection
