@@ -33,4 +33,12 @@ class TaskImageController extends Controller
 
         return redirect()->route('showTask', $id);
     }
+
+    public function download($id) {
+        $image = TaskImage::findOrFail($id);
+        $file = $image['file'];
+        $filePath = public_path('/uploads/images/'.$file);
+
+        return Response()->download($filePath);
+    }
 }

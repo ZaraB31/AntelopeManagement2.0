@@ -90,7 +90,7 @@
             @if($taskFiles->count() > 0)
             @foreach($taskFiles as $file)
             <tr>
-                <td>{{$file->name}}</td>
+                <td><a href="/ProjectsDashboard/project/task/file/{{$file->id}}">{{$file->name}}<i class="fa-solid fa-circle-down"></i></a></td>
                 <td>{{$file->user->name}}</td>
             </tr>
             @endforeach
@@ -113,7 +113,7 @@
             @if($taskImages->count() > 0)
             @foreach($taskImages as $image)
             <tr>
-                <td>{{$image->name}}</td>
+                <td><a href="/ProjectsDashboard/project/task/image/{{$image->id}}">{{$image->name}}<i class="fa-solid fa-circle-down"></i></a></td>
                 <td>{{$image->user->name}}</td>
             </tr>
             @endforeach

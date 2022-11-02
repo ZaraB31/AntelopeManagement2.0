@@ -33,4 +33,12 @@ class TaskFileController extends Controller
 
         return redirect()->route('showTask', $id);
     }
+
+    public function download($id) {
+        $document = TaskFile::findOrFail($id);
+        $file = $document['file'];
+        $filePath = public_path('/uploads/documents/'.$file);
+
+        return Response()->download($filePath);
+    }
 }
