@@ -24,7 +24,20 @@ class ProjectController extends Controller
 
     public function index() {
         $projects = Project::all();
-        return view ('projects/dashboard', ['projects' => $projects]);
+
+        foreach ($projects as $project) {
+            $id = $project->id;
+            $taskCount = Task::where('project_id', $id)->count();
+            $completedTaskCount = Task::where('project_id', $id)->where('completed', 1)->count();
+            if ($taskCount == 0) {
+                $percentage[$id] = 0;
+            } else {
+                $percentage[$id] = ($completedTaskCount / $taskCount) * 100;
+            }  
+        }
+        
+        return view ('projects/dashboard', ['projects' => $projects,
+                                            'percentage' => $percentage]);
     }
 
     public function create() {

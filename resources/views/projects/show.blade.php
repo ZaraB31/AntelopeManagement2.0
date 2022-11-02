@@ -40,6 +40,7 @@
             </tr>
         </thead> 
         <tbody colspan="2">
+            @if($projectTasks->count() > 0)
             @foreach($projectTasks as $task)
             <tr>
                 <td><a href="/ProjectsDashboard/project/task/{{$task->id}}">{{$task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
@@ -50,6 +51,11 @@
                 @endif
             </tr>
             @endforeach
+            @else 
+            <tr>
+                <td>No tasks added</td>
+            </tr>
+            @endif
         </tbody> 
     </table>
 </section>

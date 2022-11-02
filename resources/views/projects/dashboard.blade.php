@@ -16,7 +16,7 @@
             <td><a href="/ProjectsDashboard/project/{{$project->id}}">{{$project->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
             <td>{{$project->company->company}}</td>
             <td>{{$project->projectType->projectType}}</td>
-            <td>progress</td>
+            <td>{{$percentage[$project->id]}}% Completed</td>
             @if($project->completed === 1)
             <td>Completed</td>
             @else
