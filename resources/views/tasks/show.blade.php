@@ -83,13 +83,22 @@
         <thead>
             <tr>
                 <th>Task Documents</th>
-                <th><button>Add New</button></th>
+                <th><button onClick="openForm('TaskFileForm')">Add New</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
+            @if($taskFiles->count() > 0)
+            @foreach($taskFiles as $file)
             <tr>
-                <td>Example</td>
+                <td>{{$file->name}}</td>
+                <td>{{$file->user->name}}</td>
             </tr>
+            @endforeach
+            @else 
+            <tr>
+                <td>No files uploaded</td>
+            </tr>
+            @endif
         </tbody>
     </table>
 
@@ -208,6 +217,7 @@
     <button class="cancel" onClick="closeForm('TaskNoteForm')">Cancel</button>
 </div>
 
+
 <div class="hiddenForm" id="TaskImageForm" style="display:none;">
     <h3>Add image to task.</h3>
 
@@ -241,5 +251,40 @@
     </form>
 
     <button class="cancel" onClick="closeForm('TaskImageForm')">Cancel</button>
+</div>
+
+<div class="hiddenForm" id="TaskFileForm" style="display:none;">
+    <h3>Add File to task.</h3>
+
+    <i class="fa-solid fa-xmark" onClick="closeForm('TaskFileForm')"></i>
+
+    <form action="{{ route('createTaskFile') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        @if ($errors->taskFile->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->taskFile->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <label for="name">File Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file">
+
+        <label for="description">File Description:</label>
+        <input type="text" name="description" id="description">
+
+        <input type="submit" value="Complete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('TaskFileForm')">Cancel</button>
 </div>
 @endsection

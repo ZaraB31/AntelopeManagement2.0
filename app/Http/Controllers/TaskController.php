@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\TaskUser;
 use App\Models\TaskNote;
 use App\Models\TaskImage;
+use App\Models\TaskFile;
 use Auth;
 use Validator;
 
@@ -37,7 +38,8 @@ class TaskController extends Controller
         $authUser = Auth()->user()->id;
         $users = User::all();
         $taskUsers = TaskUser::where('task_id', $id)->get();
-        $taskImages = TaskImage::where('task_id', $id)->get();
+        $taskImages = TaskImage::where('task_id', $id)->get()->sortBy('name');
+        $taskFiles = TaskFile::where('task_id', $id)->get()->sortBy('name');
         $taskNotes = TaskNote::where('task_id', $id)->get()->sortByDesc('created_at');
 
         return view('tasks/show', ['task' => $task,
@@ -45,7 +47,8 @@ class TaskController extends Controller
                                    'users' => $users,
                                    'taskUsers' => $taskUsers,
                                    'taskNotes' => $taskNotes,
-                                   'taskImages' => $taskImages]);
+                                   'taskImages' => $taskImages,
+                                   'taskFiles' => $taskFiles]);
     }
 
     public function complete(Request $request) {
