@@ -51,17 +51,22 @@ class HomeController extends Controller
             }
         }
 
-        foreach ($userProjects as $userProject) {
-            $id = $userProject->id;
-            $today = Carbon::now();
-            $projectTimeLeft[$id] = strtotime($userProject->deadline) - strtotime($today);
-            $projectTimeLeft[$id] = $projectTimeLeft[$id] / 86400;
-            $projectTimeLeft[$id] = round($projectTimeLeft[$id]);
-            if ($projectTimeLeft[$id] == 0) {
-                $projectTimeLeft[$id] = 'Today';
-            } else if ($projectTimeLeft[$id] < 0) {
-                $projectTimeLeft[$id] = 'Overdue';
+        if ($userProjects->isNotEmpty()) {
+            foreach ($userProjects as $userProject) {
+                
+                $id = $userProject->id;
+                $today = Carbon::now();
+                $projectTimeLeft[$id] = strtotime($userProject->deadline) - strtotime($today);
+                $projectTimeLeft[$id] = $projectTimeLeft[$id] / 86400;
+                $projectTimeLeft[$id] = round($projectTimeLeft[$id]);
+                if ($projectTimeLeft[$id] == 0) {
+                    $projectTimeLeft[$id] = 'Today';
+                } else if ($projectTimeLeft[$id] < 0) {
+                    $projectTimeLeft[$id] = 'Overdue';
+                }
             }
+        } else {
+            $projectTimeLeft = null;
         }
 
         return view('home', ['userTasks' => $userTasks,

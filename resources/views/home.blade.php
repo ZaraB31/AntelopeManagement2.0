@@ -13,7 +13,7 @@
         @foreach($userTasks->sortBy(function ($task) {
             return $task->task->deadline;
         }); as $task)
-        @if($task->task->completed === 1)
+        @if($task->task->completed === 0)
         <tr>
             <td><a href="/ProjectsDashboard/project/task/{{$task->task->id}}">{{$task->task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
             <td>{{$task->task->project->name}}</td>
