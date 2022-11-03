@@ -9,7 +9,7 @@
     <button onClick="openForm('companyCreateForm')">Add New Company</button>
 </section>
 
-<section  onLoad="open()">
+<section>
     
     <article>
         <div class="tab">

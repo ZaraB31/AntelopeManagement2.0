@@ -4,6 +4,7 @@
 
 @section('content')
 <h1>Hello {{$user->name}}</h1>
+
 <section>
     <table class="fullTable">
         <tr>
@@ -34,6 +35,7 @@
         @endif
         </table>
 </section>
+
 <section>
     <table class="threeTable">
         <tr>
@@ -45,11 +47,11 @@
         <tr>
             <td><a href="/ProjectsDashboard/project/{{$project->id}}">{{$project->name}}<i class="fa-solid fa-arrow-right"></i></a></td>
             @if($projectTimeLeft[$project->id] === 'Today')
-                <td>Due {{$projectTimeLeft[$project->id]}} ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+                <td>Due {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @elseif($projectTimeLeft[$project->id] === 'OverDue')
-                <td class="overdue">project {{$projectTimeLeft[$project->id]}} ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+                <td class="overdue">project {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @else 
-                <td>Due in {{$projectTimeLeft[$project->id]}} Days ({{date('j F Y, g:i a', strtotime($project->deadline))}})</td>
+                <td>Due in {{$projectTimeLeft[$project->id]}} Days ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @endif
         </tr>
         @endif

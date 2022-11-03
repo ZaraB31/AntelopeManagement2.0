@@ -141,6 +141,8 @@
     </form>
 </div>
 @else
-<h1>Sorry, you do not have access to this page.</h1>
+<div class="hiddenForm">
+    <h1>Sorry, you do not have access to this page</h1>
+</div>
 @endif
 @endsection

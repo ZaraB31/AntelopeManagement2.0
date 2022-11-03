@@ -93,6 +93,9 @@
                 <td><a href="/ProjectsDashboard/project/task/file/{{$file->id}}">{{$file->name}}<i class="fa-solid fa-circle-down"></i></a></td>
                 <td>{{$file->user->name}}</td>
             </tr>
+            <tr class="noteContent">
+                <td>{{$file->description}}</td>
+            </tr>
             @endforeach
             @else 
             <tr>
@@ -115,6 +118,9 @@
             <tr>
                 <td><a href="/ProjectsDashboard/project/task/image/{{$image->id}}">{{$image->name}}<i class="fa-solid fa-circle-down"></i></a></td>
                 <td>{{$image->user->name}}</td>
+            </tr>
+            <tr class="noteContent">
+                <td>{{$image->description}}</td>
             </tr>
             @endforeach
             @else 

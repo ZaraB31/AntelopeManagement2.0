@@ -299,6 +299,9 @@ body main .hiddenForm {
   top: 10%;
   left: 27.5%;
 }
+body main .hiddenForm h1 {
+  margin-top: 20px;
+}
 body main .hiddenForm button {
   width: 40%;
   margin-left: 30%;
@@ -446,4 +449,9 @@ body main .tabContent .tabContact {
 }
 body main .tabContent .tabContact h3 {
   margin-top: 10px;
+}
+body main div.errorAlert {
+  background-color: #C20309;
+  padding: 1px;
+  color: white;
 }
