@@ -90,7 +90,12 @@
             @if($taskFiles->count() > 0)
             @foreach($taskFiles as $file)
             <tr>
-                <td><a href="/ProjectsDashboard/project/task/file/{{$file->id}}">{{$file->name}}<i class="fa-solid fa-circle-down"></i></a></td>
+                <td>
+                    <a href="/ProjectsDashboard/project/task/file/{{$file->id}}">{{$file->name}}
+                    <i class="fa-solid fa-circle-down"></i></a>
+                    <i onClick="openEditUploadForm('UpdateTaskFileForm', '{{$file->id}}', '{{$file->name}}', '{{$file->description}}')" class="fa-solid fa-pen-to-square"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </td>
                 <td>{{$file->user->name}}</td>
             </tr>
             <tr class="noteContent">
@@ -116,7 +121,12 @@
             @if($taskImages->count() > 0)
             @foreach($taskImages as $image)
             <tr>
-                <td><a href="/ProjectsDashboard/project/task/image/{{$image->id}}">{{$image->name}}<i class="fa-solid fa-circle-down"></i></a></td>
+                <td>
+                    <a href="/ProjectsDashboard/project/task/image/{{$image->id}}">{{$image->name}}
+                    <i class="fa-solid fa-circle-down"></i></a>
+                    <i onClick="openEditUploadForm('UpdateTaskImageForm', '{{$image->id}}', '{{$image->name}}', '{{$image->description}}')" class="fa-solid fa-pen-to-square"></i>
+                    <i class="fa-solid fa-trash-can"></i>
+                </td>
                 <td>{{$image->user->name}}</td>
             </tr>
             <tr class="noteContent">
@@ -224,6 +234,77 @@
 </div>
 
 
+<div class="hiddenForm" id="TaskFileForm" style="display:none;">
+    <h3>Add File to task.</h3>
+
+    <i class="fa-solid fa-xmark" onClick="closeForm('TaskFileForm')"></i>
+
+    <form action="{{ route('createTaskFile') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        @if ($errors->taskFile->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->taskFile->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <label for="name">File Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file">
+
+        <label for="description">File Description:</label>
+        <input type="text" name="description" id="description">
+
+        <input type="submit" value="Complete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('TaskFileForm')">Cancel</button>
+</div>
+
+
+<div class="hiddenForm" id="UpdateTaskFileForm" style="display:none;">
+    <h3>Update File Details</h3>
+
+    <i class="fa-solid fa-xmark" onClick="closeForm('UpdateTaskFileForm')"></i>
+
+    <form action="{{ route('updateTaskFile') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        @if ($errors->updateTaskFile->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->updateTaskFile->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <label for="name">File Name:</label>
+        <input type="text" name="name" id="name">
+
+        <label for="description">File Description:</label>
+        <input type="text" name="description" id="description">
+
+        <input type="submit" value="Complete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('UpdateTaskFileForm')">Cancel</button>
+</div>
+
+
 <div class="hiddenForm" id="TaskImageForm" style="display:none;">
     <h3>Add image to task.</h3>
 
@@ -259,18 +340,19 @@
     <button class="cancel" onClick="closeForm('TaskImageForm')">Cancel</button>
 </div>
 
-<div class="hiddenForm" id="TaskFileForm" style="display:none;">
-    <h3>Add File to task.</h3>
 
-    <i class="fa-solid fa-xmark" onClick="closeForm('TaskFileForm')"></i>
+<div class="hiddenForm" id="UpdateTaskImageForm" style="display:none;">
+    <h3>Update Image Details</h3>
 
-    <form action="{{ route('createTaskFile') }}" method="post" enctype="multipart/form-data">
+    <i class="fa-solid fa-xmark" onClick="closeForm('UpdateTaskImageForm')"></i>
+
+    <form action="{{ route('updateTaskImage') }}" method="post" enctype="multipart/form-data">
         @csrf 
 
-        @if ($errors->taskFile->any())
+        @if ($errors->updateTaskImage->any())
             <div class="errorAlert" id="errorAlert">
                 <ul>
-                    @foreach ($errors->taskFile->all() as $error)
+                    @foreach ($errors->updateTaskImage->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
@@ -279,18 +361,19 @@
 
         <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
 
-        <label for="name">File Name:</label>
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <label for="name">Image Name:</label>
         <input type="text" name="name" id="name">
 
-        <label for="file">File:</label>
-        <input type="file" name="file" id="file">
-
-        <label for="description">File Description:</label>
+        <label for="description">Image Description:</label>
         <input type="text" name="description" id="description">
 
-        <input type="submit" value="Complete">
+        <input type="submit" value="Save">
     </form>
 
-    <button class="cancel" onClick="closeForm('TaskFileForm')">Cancel</button>
+    <button class="cancel" onClick="closeForm('UpdateTaskImageForm')">Cancel</button>
 </div>
+
+
 @endsection

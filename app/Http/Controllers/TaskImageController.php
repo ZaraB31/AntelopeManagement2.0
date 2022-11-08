@@ -46,4 +46,20 @@ class TaskImageController extends Controller
 
         return Response()->download($filePath);
     }
+
+    public function update(Request $request) {
+        $id = $request['id'];
+        $image = TaskImage::findOrFail($id);
+
+        Validator::make($request->all(), [
+            'name' => 'required',
+            'description' => 'required',
+        ])->validateWithBag('updateTaskImage');
+
+        $taskID = $request['task_id'];
+
+        $image->update($request->all());
+        
+        return redirect()->route('showTask', $taskID);
+    }
 }

@@ -17,6 +17,17 @@ function openEditForm(formName, ID, Name){
     id.value = ID;
 }
 
+function openEditUploadForm(formName, ID, Name, Description){
+    var x = document.getElementById(formName);
+    x.style.display = "block";
+    var id = x.querySelector('#id');
+    var name = x.querySelector('#name');
+    var description = x.querySelector('#description');
+    name.value = Name;
+    id.value = ID;
+    description.value = Description;
+}
+
 function openError() {
     var error = document.getElementById("errorAlert");
     

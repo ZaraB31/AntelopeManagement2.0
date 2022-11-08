@@ -46,4 +46,20 @@ class TaskFileController extends Controller
 
         return Response()->download($filePath);
     }
+
+    public function update(Request $request) {
+        $id = $request['id'];
+        $file = TaskFile::findOrFail($id);
+
+        Validator::make($request->all(), [
+            'name' => 'required',
+            'description' => 'required',
+        ])->validateWithBag('updateTaskFile');
+
+        $taskID = $request['task_id'];
+
+        $file->update($request->all());
+        
+        return redirect()->route('showTask', $taskID);
+    }
 }
