@@ -45,6 +45,8 @@ Route::post('/ProjectsDashboard/project/addNote', [App\Http\Controllers\ProjectN
 
 Route::post('/ProjectsDashboard/project/task/create', [App\Http\Controllers\TaskController::class, 'store'])->name('createTask');
 Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('showTask');
+Route::get('/ProjectsDashboard/project/task/{id}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('editTask');
+Route::post('/ProjectsDashboard/project/task/{id}/edit', [App\Http\Controllers\TaskController::class, 'update'])->name('updateTask');
 Route::post('/ProjectsDashboard/project/task/complete', [App\Http\Controllers\TaskController::class, 'complete'])->name('completeTask');
 Route::post('/ProjectsDashboard/project/task/users', [App\Http\Controllers\TaskUserController::class, 'assignUser'])->name('assignUser');
 Route::post('/ProjectsDashboard/project/task/note', [App\Http\Controllers\TaskNoteController::class, 'store'])->name('createTaskNote');

@@ -24,7 +24,7 @@ class TaskController extends Controller
         Validator::make($request->all(), [
             'name' => 'required',
             'description' => 'required',
-            'deadline' => 'required',
+            'deadline' => 'required|date|after_or_equal:today',
             'project_id' => 'required',
         ])->validateWithBag('projectTask');
 
@@ -64,4 +64,24 @@ class TaskController extends Controller
 
         return redirect()->route('showTask', $id);
     }
+
+    public function edit($id) {
+        $task = Task::findOrFail($id);
+
+        return view('tasks/edit', ['task' => $task]);
+    }
+
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'deadline' => 'required|date',
+        ]);
+
+        $task = Task::FindOrFail($id);
+
+        $task->update($request->all());
+
+        return redirect()->route('showTask', $id);
+    } 
 }

@@ -25,8 +25,8 @@
 </section>
 
 <section class="actionButtons">
-    <button class="edit">Edit</button>
-    <button class="delete">Delete</button>
+    <button class="edit"><a href="/ProjectsDashboard/project/task/{{$task->id}}/edit">Edit</a></button>
+    <button class="delete"><a href="">Delete</a></button>
 </section>
 
 <section class="halfSection">
