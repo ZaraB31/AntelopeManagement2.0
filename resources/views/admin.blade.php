@@ -5,6 +5,7 @@
 @section('content')
 @if($accessLevel->userType_id === 1)
 <h1>Admin Dashboard</h1>
+
 <section class="halfSection">
     <table>
         <tr>
@@ -31,6 +32,7 @@
         @endforeach
     </table>
 </section>
+
 <section class="halfSection">
     <table>
         <tr>
@@ -39,7 +41,7 @@
         </tr>
         @foreach($userTypes as $userType)
         <tr>
-            <td colspan="2">{{$userType->userType}}</td>
+            <td colspan="2">{{$userType->userType}} <i onClick="openEditForm('UserTypeUpdateForm', '{{$userType->id}}', '{{$userType->userType}}')" class="fa-solid fa-pen-to-square"></i></td>
         </tr>
         @endforeach
     </table>
@@ -51,7 +53,7 @@
         </tr>
         @foreach($employers as $employer)
         <tr>
-            <td colspan="2">{{$employer->employer}}</td>
+            <td colspan="2">{{$employer->employer}} <i onClick="openEditForm('EmployersUpdateForm', '{{$employer->id}}', '{{$employer->employer}}')" class="fa-solid fa-pen-to-square"></i></td>
         </tr>
         @endforeach
     </table>
@@ -63,7 +65,7 @@
         </tr>
         @foreach($projectTypes as $projectType)
         <tr>
-            <td colspan="2">{{$projectType->projectType}}</td>
+            <td colspan="2">{{$projectType->projectType}} <i onClick="openEditForm('ProjectTypeUpdateForm', '{{$projectType->id}}', '{{$projectType->projectType}}')" class="fa-solid fa-pen-to-square"></i></td>
         </tr>
         @endforeach
     </table>
@@ -76,10 +78,10 @@
     <form action="{{ route('createUserType') }}" method="post">
         @csrf  
         
-        @if ($errors->userType->any())
+        @if ($errors->userTypes->any())
             <div class="errorAlert" id="errorAlert">
                 <ul>
-                    @foreach ($errors->userType->all() as $error)
+                    @foreach ($errors->userTypes->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
@@ -91,6 +93,33 @@
 
         <input type="submit" value="Save">
     </form>
+</div>
+
+<div class="hiddenForm" id="UserTypeUpdateForm" style="display:none;">
+    <h3>Update User Type</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('UserTypeUpdateForm')"></i>
+
+    <form action="{{ route('updateUserType') }}" method="post">
+        @csrf  
+        
+        @if ($errors->updateUserTypes->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->updateUserTypes->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <label for="userType">User Type:</label>
+        <input type="text" name="userType" id="name">
+
+        <input type="submit" value="Save">
+    </form>
+    <button class="cancel" onClick="closeForm('UserTypeUpdateForm')">Cancel</button>
 </div>
 
 <div class="hiddenForm" id="EmployersCreateForm" style="display:none;">
@@ -117,6 +146,33 @@
     </form>
 </div>
 
+<div class="hiddenForm" id="EmployersUpdateForm" style="display:none;">
+    <h3>Update Employer Details</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('EmployersUpdateForm')"></i>
+
+    <form action="{{ route('updateEmployer') }}" method="post">
+        @csrf  
+        
+        @if ($errors->updateEmployers->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->updateEmployers->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <label for="employer">Employer name:</label>
+        <input type="text" name="employer" id="name">
+
+        <input type="submit" value="Save">
+    </form>
+    <button class="cancel" onClick="closeForm('UserTypeUpdateForm')">Cancel</button>
+</div>
+
 <div class="hiddenForm" id="ProjectTypeCreateForm" style="display:none;">
     <h3>Add New Project Type</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeCreateForm')"></i>
@@ -124,10 +180,10 @@
     <form action="{{ route('createProjectType') }}" method="post">
         @csrf  
         
-        @if ($errors->projectType->any())
+        @if ($errors->projectTypes->any())
             <div class="errorAlert" id="errorAlert">
                 <ul>
-                    @foreach ($errors->projectType->all() as $error)
+                    @foreach ($errors->projectTypes->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
@@ -140,6 +196,34 @@
         <input type="submit" value="Save">
     </form>
 </div>
+
+<div class="hiddenForm" id="ProjectTypeUpdateForm" style="display:none;">
+    <h3>Add New Project Type</h3>
+    <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeUpdateForm')"></i>
+
+    <form action="{{ route('updateProjectType') }}" method="post">
+        @csrf  
+        
+        @if ($errors->updateProjectTypes->any())
+            <div class="errorAlert" id="errorAlert">
+                <ul>
+                    @foreach ($errors->updateProjectTypes->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <label for="projectType">Project Type:</label>
+        <input type="text" name="projectType" id="name">
+
+        <input type="submit" value="Save">
+    </form>
+    <button class="cancel" onClick="closeForm('UserTypeUpdateForm')">Cancel</button>
+</div>
+
 @else
 <div class="hiddenForm">
     <h1>Sorry, you do not have access to this page</h1>

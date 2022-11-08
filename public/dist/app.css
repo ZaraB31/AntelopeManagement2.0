@@ -116,6 +116,9 @@ body main section table td {
 body main section table td i {
   margin-left: 10px;
 }
+body main section table td i:hover {
+  cursor: pointer;
+}
 body main section table td a {
   color: white;
   text-decoration: none;
