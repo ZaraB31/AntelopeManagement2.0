@@ -477,6 +477,22 @@ body main .tabContent .tabContact {
 body main .tabContent .tabContact h3 {
   margin-top: 10px;
 }
+body main .tabContent .tabContact h3 a {
+  font-size: 18px;
+  color: white;
+  margin-left: 5px;
+}
+body main .tabContent .tabContact h3 a:hover {
+  color: #738580;
+}
+body main .tabContent h2 a {
+  font-size: 20px;
+  color: black;
+  margin-left: 5px;
+}
+body main .tabContent h2 a:hover {
+  color: #C20309;
+}
 body main div.errorAlert {
   background-color: #C20309;
   padding: 1px;

@@ -23,4 +23,12 @@ class CompanyController extends Controller
         return redirect('ContactBook');
 
     }
+
+    public function Update(Request $request) {
+        $id = $request['id'];
+        $company = Company::findOrFail($id);
+        $company->update($request->all());
+
+        return redirect('/ContactBook');
+    }
 }

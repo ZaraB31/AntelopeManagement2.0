@@ -447,6 +447,24 @@ body {
                 border-radius: 3px;
                 h3 {
                     margin-top: 10px;
+                    a {
+                        font-size: 18px;
+                        color: white;
+                        margin-left: 5px;
+                    }
+                    a:hover {
+                        color: $grey;
+                    }
+                }
+            }
+            h2 {
+                a {
+                    font-size: 20px;
+                    color: black;
+                    margin-left: 5px;
+                }
+                a:hover {
+                    color: $red;
                 }
             }
         }
