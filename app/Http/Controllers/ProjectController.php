@@ -100,11 +100,13 @@ class ProjectController extends Controller
         $projectTypes = ProjectType::all()->sortBy('projectType');
         $companies = Company::all()->sortBy('company');
         $employers = Employer::all()->sortBy('employer');
+        $user = Auth()->user();
 
         return view('projects/edit', ['project' => $project,
                                       'projectTypes' => $projectTypes,
                                       'companies' => $companies,
-                                      'employers' => $employers]);
+                                      'employers' => $employers,
+                                      'user' => $user]);
     }
 
     public function update(Request $request, $id) {

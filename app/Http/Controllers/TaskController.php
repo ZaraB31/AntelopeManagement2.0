@@ -66,9 +66,10 @@ class TaskController extends Controller
     }
 
     public function edit($id) {
+        $user = Auth()->user();
         $task = Task::findOrFail($id);
 
-        return view('tasks/edit', ['task' => $task]);
+        return view('tasks/edit', ['task' => $task, 'user' => $user]);
     }
 
     public function update(Request $request, $id) {

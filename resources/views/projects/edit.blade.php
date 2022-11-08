@@ -3,6 +3,7 @@
 @section('title', 'Edit Project')
 
 @section('content')
+@if($user->id === $project->user_id)
 <h1>Edit Project - {{$project->name}}</h1>
 
 <section>
@@ -68,5 +69,13 @@
     </form>
     <button class="cancelButton"><a href="/ProjectsDashboard/project/{{$project->id}}">Cancel</a></button>
 </section>
+
+@else
+<div class="hiddenForm">
+    <h1>Sorry, you do not have access to this page.</h1>
+    <p>Only the user who created the project can update the project.</p>
+    <a href="/ProjectsDashboard/project/{{$project->id}}"><button class="back">Go Back</button></a>
+</div>
+@endif
 
 @endsection

@@ -3,6 +3,7 @@
 @section('title', 'Edit Task')
 
 @section('content')
+@if($user->id === $task->user_id)
 <h1>Edit Task - {{$task->name}}</h1>
 
 <section>
@@ -25,4 +26,12 @@
     </form>
     <button class="cancelButton"><a href="/ProjectsDashboard/project/task/{{$task->id}}">Cancel</a></button>
 </section>
+
+@else
+<div class="hiddenForm">
+    <h1>Sorry, you do not have access to this page.</h1>
+    <p>Only the user who created the task can update the task.</p>
+    <a href="/ProjectsDashboard/project/task/{{$task->id}}"><button class="back">Go Back</button></a>
+</div>
+@endif
 @endsection

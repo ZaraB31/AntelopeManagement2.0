@@ -8,7 +8,7 @@
 <section>
     <table class="fullTable">
         <tr>
-            <th colspan="3">Upcoming Tasks</th>
+            <th colspan="4">Upcoming Tasks</th>
         </tr>
         @if($userTasks->count() > 0)
         @foreach($userTasks->sortBy(function ($task) {
@@ -18,6 +18,7 @@
         <tr>
             <td><a href="/ProjectsDashboard/project/task/{{$task->task->id}}">{{$task->task->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
             <td>{{$task->task->project->name}}</td>
+            <td>{{$task->task->project->projectType->projectType}}</td>
             @if($taskTimeLeft[$task->id] === 'Today')
                 <td>Due {{$taskTimeLeft[$task->id]}} ( {{date('j F Y, g:i a', strtotime($task->task->deadline))}} )</td>
             @elseif($taskTimeLeft[$task->id] === 'Overdue')

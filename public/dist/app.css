@@ -323,7 +323,7 @@ body main .hiddenForm button {
   border: none;
   color: white;
 }
-body main .hiddenForm .cancel {
+body main .hiddenForm .cancel, body main .hiddenForm .back {
   width: 40%;
   background-color: #3E3E3E;
   font-size: 17px;
@@ -332,6 +332,20 @@ body main .hiddenForm .cancel {
   padding: 3px;
   margin-top: 5px;
   margin-left: 0;
+}
+body main .hiddenForm .back {
+  background-color: #C20309;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+body main .hiddenForm .back a {
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+}
+body main .hiddenForm .back:hover {
+  background-color: #F4040B;
 }
 body main .hiddenForm .cancel:hover {
   background-color: #585858;
