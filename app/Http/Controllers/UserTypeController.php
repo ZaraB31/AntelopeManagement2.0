@@ -7,6 +7,11 @@ use App\Models\UserType;
 
 class UserTypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function store(Request $request) {
         $this->validate($request, [
             'userType' => 'required|unique:user_types',

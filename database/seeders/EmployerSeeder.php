@@ -17,8 +17,8 @@ class EmployerSeeder extends Seeder
      */
     public function run()
     {
-        $employers = [['employer' => 'Mega Electrical',],
-                      ['employer' => 'A Parry Construction',]];
+        $employers = [['employer' => 'Mega Electrical'],
+                      ['employer' => 'A Parry Construction']];
 
         DB::table('employers')->insert($employers);
     }

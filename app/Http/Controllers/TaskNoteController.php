@@ -10,6 +10,11 @@ use Auth;
 
 class TaskNoteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function store(Request $request) {
         Validator::make($request->all(), [
             'task_id' => 'required',

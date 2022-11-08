@@ -18,7 +18,8 @@ class ProjectTypeSeeder extends Seeder
     public function run()
     {
         $projectTypes = [['projectType' => 'Project'],
-                         ['projectType' => 'Tender']];
+                         ['projectType' => 'Tender'],
+                         ['projectType' => 'Quote']];
         
         DB::table('project_types')->insert($projectTypes);
     }

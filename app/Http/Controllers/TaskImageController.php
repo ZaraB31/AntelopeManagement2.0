@@ -9,6 +9,11 @@ use App\Models\TaskImage;
 
 class TaskImageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function store(Request $request) {
         Validator::make($request->all(), [
             'name' => 'required',

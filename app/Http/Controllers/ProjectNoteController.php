@@ -10,6 +10,11 @@ use Validator;
 
 class ProjectNoteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function store(Request $request) {
         Validator::make($request->all(), [
             'project_id' => 'required',

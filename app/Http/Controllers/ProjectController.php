@@ -94,4 +94,24 @@ class ProjectController extends Controller
 
         return redirect()->route('showProject', $id);
     }
+
+    public function edit($id) {
+        $project = Project::findOrFail($id);
+        $projectTypes = ProjectType::all()->sortBy('projectType');
+        $companies = Company::all()->sortBy('company');
+        $employers = Employer::all()->sortBy('employer');
+
+        return view('projects/edit', ['project' => $project,
+                                      'projectTypes' => $projectTypes,
+                                      'companies' => $companies,
+                                      'employers' => $employers]);
+    }
+
+    public function update(Request $request, $id) {
+        $project = Project::FindOrFail($id);
+
+        $project->update($request->all());
+
+        return redirect()->route('showProject', $id);
+    } 
 }

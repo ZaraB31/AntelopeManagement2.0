@@ -8,6 +8,11 @@ use App\Models\TaskUser;
 
 class TaskUserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function assignUser(Request $request) {
         Validator::make($request->all(), [
             'task_id' => 'required',

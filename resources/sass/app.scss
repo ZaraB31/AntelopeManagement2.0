@@ -177,13 +177,14 @@ body {
                 input[type=datetime-local] {
                     width: 97.5%;
                 }
-                input[type=submit], button {
+                input[type=submit] {
                     width: 25%;
                     font-family: "Share", cursive;
                     font-size: 22px;
                     padding: 4px 0;
                     border: none;
                     color: white;
+                    text-decoration: none;
                 }
                 input[type=submit] {
                     float: right;
@@ -192,15 +193,22 @@ body {
                 input[type=submit]:hover {
                     background-color: $redHover;
                 }
-                button {
-                    background-color: $darkGrey;
-                    
-                }
-                button:hover {
-                    background-color: $darkGreyHover;        
+            }
+            .cancelButton {
+                width: 25%;
+                padding: 4px 0;
+                border: none;
+                background-color: $darkGrey;
+                a {
+                   font-family: "Share", cursive;
+                   color: white;
+                    text-decoration: none; 
+                    font-size: 22px;
                 }
             }
-
+            .cancelButton:hover {
+                background-color: $darkGreyHover;
+            }
         }
         .backButton {
             width: 100%;
@@ -247,8 +255,11 @@ body {
                 padding: 8px 16px;
                 border: none;
                 font-size: 18px;
-                color: white;
                 width: 120px;
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
             }
             .edit {
                 background-color: $darkGrey;
