@@ -39,4 +39,23 @@ class ContactController extends Controller
         Contact::create($input);
         return redirect('/ContactBook');
     }
+
+    public function edit($id) {
+        $contact = Contact::findOrFail($id);
+
+        return view('contacts/edit', ['contact' => $contact]);
+    }
+
+    public function update(Request $request, $id) {
+        $this->validate($request, [
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        $contact = Contact::findOrFail($id);
+        $contact->update($request->all());
+
+        return redirect('/ContactBook');
+    }
 }

@@ -5,7 +5,7 @@
 @section('content')
 <h1>Add new company contact - {{$company->company}}</h1>
 <section>
-    <form action="" method="post">
+    <form action="{{ route('storeContact') }}" method="post">
         @csrf  @include('includes.error') 
 
         <label for="name">Name:</label>
@@ -19,8 +19,9 @@
 
         <input type="text" name="company_id" id="company_id" value="{{$company->id}}" style="display:none;">
 
-        <button>Cancel</button>
         <input type="submit" value="Save">
     </form>
+
+    <button class="cancelButton"><a href="/ContactBook">Cancel</a></button>
 </section>
 @endsection

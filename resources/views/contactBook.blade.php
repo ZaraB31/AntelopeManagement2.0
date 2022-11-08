@@ -30,7 +30,7 @@
             @if($contact->company_id === $company->id)
             <div class="tabContact">
                 <h3>{{$contact->name}}
-                    <a href=""><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="/Company/Contact/{{$contact->id}}/update"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a href=""><i class="fa-solid fa-trash-can"></i></a>
                 </h3>
                 <p><b>Email Address:</b> {{$contact->email}}</p>
