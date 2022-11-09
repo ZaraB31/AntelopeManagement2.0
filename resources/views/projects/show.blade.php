@@ -47,7 +47,7 @@
                 @if($task->completed === 0)
                 <td>In Progress</td>
                 @else
-                <td>Completed</td>
+                <td style="background-color: #69C203;">Completed</td>
                 @endif
             </tr>
             @endforeach
@@ -91,12 +91,12 @@
     <table>
         <tr>
             <th colspan="3">Contacts</th>
-            <th><button onClick="openForm('LinkContactForm')">Link Contact</button></th>
+            <th><button onClick="openForm('LinkContactForm')"><i class="fa-solid fa-link"></i>Link Contact</button></th>
         </tr>
         @if($projectContacts->count() > 0)
         @foreach($projectContacts as $projectContact)
         <tr>
-            <td>{{$projectContact->contact->company->company}}</td>
+            <td><i onClick="openDeleteForm('UnlinkContactForm', '{{$projectContact->id}}')" class="fa-solid fa-link-slash"></i> {{$projectContact->contact->company->company}}</td>
             <td>{{$projectContact->contact->name}}</td>
             <td>0{{$projectContact->contact->phone}}</td>
             <td>{{$projectContact->contact->email}}</td>
@@ -232,5 +232,24 @@
         <input type="submit" value="Save">
     </form>
     <button class="cancel" onClick="closeForm('CreateTaskForm')">Cancel</button>
+</div>
+
+
+<div class="hiddenForm" id="UnlinkContactForm" style="display:none;">
+    <h3>Unlink Project Contact</h3>
+    <p>Are you sure you want to unlink this contact?</p>
+    <i class="fa-solid fa-xmark" onClick="closeForm('UnlinkContactForm')"></i>
+
+    <form action="{{ route('unlinkContact') }}" method="post">
+        @csrf 
+
+        <input type="text" name="id" id="id" style="display:none;">
+        <input type="text" name="project_id" id="project_id" value="{{$project->id}}" style="display:none;">
+
+        <input type="submit" value="Unlink">
+
+    </form>
+
+    <button class="cancel" onClick="closeForm('UnlinkContactForm')">Cancel</button>
 </div>
 @endsection

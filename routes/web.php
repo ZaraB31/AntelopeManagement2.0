@@ -47,6 +47,7 @@ Route::get('/ProjectsDashboard/project/{id}/edit', [App\Http\Controllers\Project
 Route::post('/ProjectsDashboard/project/{id}/edit', [App\Http\Controllers\ProjectController::class, 'update'])->name('updateProject');
 
 Route::post('/ProjectsDashboard/project/linkContact', [App\Http\Controllers\ProjectContactController::class, 'store'])->name('linkContact');
+Route::post('/ProjectsDashboard/project/unlinkContact', [App\Http\Controllers\ProjectContactController::class, 'delete'])->name('unlinkContact');
 Route::post('/ProjectsDashboard/project/addNote', [App\Http\Controllers\ProjectNoteController::class, 'store'])->name('addNote');
 
 Route::post('/ProjectsDashboard/project/task/create', [App\Http\Controllers\TaskController::class, 'store'])->name('createTask');

@@ -28,6 +28,13 @@ function openEditUploadForm(formName, ID, Name, Description){
     description.value = Description;
 }
 
+function openDeleteForm(formName, ID) {
+    var x = document.getElementById(formName);
+    x.style.display = "block";
+    var id = x.querySelector('#id');
+    id.value = ID;
+}
+
 function openError() {
     var error = document.getElementById("errorAlert");
     

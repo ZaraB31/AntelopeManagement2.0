@@ -26,4 +26,13 @@ class ProjectContactController extends Controller
 
         return redirect()->route('showProject', $id);
     }
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+        $project = $request['project_id'];
+        $projectContact = ProjectContact::findOrFail($id);
+        $projectContact->delete();
+
+        return redirect()->route('showProject', $project);
+    }
 }

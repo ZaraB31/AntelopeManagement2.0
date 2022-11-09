@@ -107,6 +107,9 @@ body main section table button a {
   text-decoration: none;
   color: black;
 }
+body main section table button i {
+  margin: 0 10px;
+}
 body main section table button:hover {
   background-color: #ABABAB;
 }
@@ -116,7 +119,7 @@ body main section table td {
   border-bottom: 2px solid #3E3E3E;
 }
 body main section table td i {
-  margin-left: 10px;
+  margin: 0 10px;
 }
 body main section table td i:hover {
   cursor: pointer;

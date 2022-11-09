@@ -76,6 +76,9 @@ body {
                         text-decoration: none;
                         color: black;
                     }
+                    i {
+                        margin: 0 10px;
+                    }
                 }
                 button:hover {
                     background-color: #ABABAB;
@@ -85,7 +88,7 @@ body {
                     padding: 8px;
                     border-bottom: 2px solid $darkGrey;
                     i {
-                        margin-left: 10px;
+                        margin: 0 10px;
                     }
                     i:hover {
                         cursor: pointer;
