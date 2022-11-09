@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             EmployerSeeder::class,
             UserTypeSeeder::class,
             ProjectTypeSeeder::class,
-            CompaniesSeeder::class,
         ]);
     }
 }

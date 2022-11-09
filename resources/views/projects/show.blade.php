@@ -96,7 +96,7 @@
         @if($projectContacts->count() > 0)
         @foreach($projectContacts as $projectContact)
         <tr>
-            <td><i onClick="openDeleteForm('UnlinkContactForm', '{{$projectContact->id}}')" class="fa-solid fa-link-slash"></i> {{$projectContact->contact->company->company}}</td>
+            <td><i onClick="openDeleteForm('UnlinkContactForm', '{{$projectContact->id}}', '{{$projectContact->contact->name}}')" class="fa-solid fa-link-slash"></i> {{$projectContact->contact->company->company}}</td>
             <td>{{$projectContact->contact->name}}</td>
             <td>0{{$projectContact->contact->phone}}</td>
             <td>{{$projectContact->contact->email}}</td>
@@ -236,7 +236,7 @@
 
 
 <div class="hiddenForm" id="UnlinkContactForm" style="display:none;">
-    <h3>Unlink Project Contact</h3>
+    <h3 id="title">Unlink Project Contact - </h3>
     <p>Are you sure you want to unlink this contact?</p>
     <i class="fa-solid fa-xmark" onClick="closeForm('UnlinkContactForm')"></i>
 

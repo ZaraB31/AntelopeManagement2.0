@@ -31,4 +31,13 @@ class CompanyController extends Controller
 
         return redirect('/ContactBook');
     }
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+
+        $company = Company::findOrFail($id);
+        $company->delete();
+
+        return redirect('/ContactBook');
+    }
 }

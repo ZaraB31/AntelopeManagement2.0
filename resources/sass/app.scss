@@ -398,7 +398,7 @@ body {
             height: 70vh;
             border: 1px solid grey;
             background-color: $grey;
-            button {
+            button, div {
                 display: block;
                 background-color: $darkGrey;
                 border: none;
@@ -406,6 +406,10 @@ body {
                 color: white;
                 padding: 10px 0;
                 border-bottom: 1px solid white;
+                p {
+                    margin: 0;
+                    text-align: center;
+                }
             }
             button:hover {
                 background-color: $darkGreyHover;

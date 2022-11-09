@@ -34,10 +34,12 @@ Route::post('/UserDetails/create', [App\Http\Controllers\UserDetailController::c
 
 Route::post('/Company/create', [App\Http\Controllers\CompanyController::class, 'store'])->name('createCompany');
 Route::get('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'create'])->name('createContact');
-Route::post('/Company/{id}/Contact/create', [App\Http\Controllers\ContactController::class, 'store'])->name('storeContact');
+Route::post('/Company/Contact/create', [App\Http\Controllers\ContactController::class, 'store'])->name('storeContact');
 Route::post('/Company/update', [App\Http\Controllers\CompanyController::class, 'update'])->name('updateCompany');
+Route::post('/Company/delete', [App\Http\Controllers\CompanyController::class, 'delete'])->name('deleteCompany');
 Route::get('/Company/Contact/{id}/update', [App\Http\Controllers\ContactController::class, 'edit'])->name('editContact');
 Route::post('/Company/Contact/{id}/update', [App\Http\Controllers\ContactController::class, 'update'])->name('updateContact');
+Route::post('/Company/Contact/delete', [App\Http\Controllers\ContactController::class, 'delete'])->name('deleteContact');
 
 Route::get('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('createProject');
 Route::post('/ProjectsDashboard/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('storeProject');

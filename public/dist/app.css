@@ -422,7 +422,7 @@ body main .tab {
   border: 1px solid grey;
   background-color: #738580;
 }
-body main .tab button {
+body main .tab button, body main .tab div {
   display: block;
   background-color: #3E3E3E;
   border: none;
@@ -430,6 +430,10 @@ body main .tab button {
   color: white;
   padding: 10px 0;
   border-bottom: 1px solid white;
+}
+body main .tab button p, body main .tab div p {
+  margin: 0;
+  text-align: center;
 }
 body main .tab button:hover {
   background-color: #585858;

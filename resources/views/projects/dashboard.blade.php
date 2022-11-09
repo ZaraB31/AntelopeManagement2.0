@@ -11,6 +11,7 @@
             <th colspan="3">Projects</th>
             <th><button><a href="/ProjectsDashboard/create">Add New</a></button></th>
         </tr>
+        @if($projects->count() > 0)
         @foreach($projects as $project)
         @if($project->completed === 0 or $project->completed === 1 and $projectTimeLeft[$project->id] !== 'Overdue')
         <tr>
@@ -38,6 +39,11 @@
         </tr>
         @endif
         @endforeach
+        @else
+        <tr>
+            <td colspan="4">No projects added</td>
+        </tr>
+        @endif
     </table>
 </section>
 @endsection

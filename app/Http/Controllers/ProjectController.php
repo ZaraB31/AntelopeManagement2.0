@@ -26,15 +26,19 @@ class ProjectController extends Controller
     public function index() {
         $projects = Project::all();
 
-        foreach ($projects as $project) {
-            $id = $project->id;
-            $taskCount = Task::where('project_id', $id)->count();
-            $completedTaskCount = Task::where('project_id', $id)->where('completed', 1)->count();
-            if ($taskCount == 0) {
-                $percentage[$id] = 0;
-            } else {
-                $percentage[$id] = ($completedTaskCount / $taskCount) * 100;
-            }  
+        if ($projects->isNotEmpty()) {      
+            foreach ($projects as $project) {
+                $id = $project->id;
+                $taskCount = Task::where('project_id', $id)->count();
+                $completedTaskCount = Task::where('project_id', $id)->where('completed', 1)->count();
+                if ($taskCount == 0) {
+                    $percentage[$id] = 0;
+                } else {
+                    $percentage[$id] = ($completedTaskCount / $taskCount) * 100;
+                }  
+            }
+        } else {
+            $percentage = null;
         }
 
         if ($projects->isNotEmpty()) {

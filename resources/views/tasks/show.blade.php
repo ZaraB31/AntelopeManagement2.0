@@ -91,8 +91,10 @@
             @foreach($taskFiles as $file)
             <tr>
                 <td>
-                    <a href="/ProjectsDashboard/project/task/file/{{$file->id}}">{{$file->name}}
-                    <i class="fa-solid fa-circle-down"></i></a>
+                    {{$file->name}}
+                </td>
+                <td>
+                    <a href="/ProjectsDashboard/project/task/file/{{$file->id}}"><i class="fa-solid fa-circle-down"></i></a>
                     <i onClick="openEditUploadForm('UpdateTaskFileForm', '{{$file->id}}', '{{$file->name}}', '{{$file->description}}')" class="fa-solid fa-pen-to-square"></i>
                     <i class="fa-solid fa-trash-can"></i>
                 </td>
@@ -122,8 +124,10 @@
             @foreach($taskImages as $image)
             <tr>
                 <td>
-                    <a href="/ProjectsDashboard/project/task/image/{{$image->id}}">{{$image->name}}
-                    <i class="fa-solid fa-circle-down"></i></a>
+                    {{$image->name}}
+                </td>
+                <td>
+                    <a href="/ProjectsDashboard/project/task/image/{{$image->id}}"><i class="fa-solid fa-circle-down"></i></a>
                     <i onClick="openEditUploadForm('UpdateTaskImageForm', '{{$image->id}}', '{{$image->name}}', '{{$image->description}}')" class="fa-solid fa-pen-to-square"></i>
                     <i class="fa-solid fa-trash-can"></i>
                 </td>
