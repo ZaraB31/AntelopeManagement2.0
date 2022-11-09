@@ -143,25 +143,27 @@
 </section>
 
 <div class="hiddenForm" id="TaskCompleteForm" style="display:none;">
-    @if($authUser === $task->user_id)
-    <h3>Are you sure you want to mark this task as completed?</h3>
-    <p>Once you mark this as completed, it can not be undone.</p>
-    <i class="fa-solid fa-xmark" onClick="closeForm('TaskCompleteForm')"></i>
+    @foreach($taskUsers as $user)
+        @if($authUser === $user->user->id)
+        <h3>Are you sure you want to mark this task as completed?</h3>
+        <p>Once you mark this as completed, it can not be undone.</p>
+        <i class="fa-solid fa-xmark" onClick="closeForm('TaskCompleteForm')"></i>
 
-    <form action="{{ route('completeTask') }}" method="post">
-        @csrf 
+        <form action="{{ route('completeTask') }}" method="post">
+            @csrf 
 
-        <input type="text" name="id" id="id" value="{{$task->id}}" style="display:none;">
+            <input type="text" name="id" id="id" value="{{$task->id}}" style="display:none;">
 
-        <input type="submit" value="Complete">
-    </form>
+            <input type="submit" value="Complete">
+        </form>
 
-    <button class="cancel" onClick="closeForm('TaskCompleteForm')">Cancel</button>
-    @else 
-    <h3>You can not mark this task as completed.</h3>
-    <p>This task can only be marked as completed by the user who created it.</p>
-    <button onClick="closeForm('TaskCompleteForm')">Back</button>
-    @endif
+        <button class="cancel" onClick="closeForm('TaskCompleteForm')">Cancel</button>
+        @else 
+        <h3>You can not mark this task as completed.</h3>
+        <p>This task can only be marked as completed by the user(s) assigned to complete it.</p>
+        <button cancel="back" onClick="closeForm('TaskCompleteForm')">Back</button>
+        @endif
+    @endforeach
 </div>
 
 

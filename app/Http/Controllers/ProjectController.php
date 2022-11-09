@@ -13,6 +13,7 @@ use App\Models\ProjectNote;
 use App\Models\Task;
 use Auth;
 use Validator;
+use Carbon\Carbon;
 
 
 class ProjectController extends Controller
@@ -35,9 +36,28 @@ class ProjectController extends Controller
                 $percentage[$id] = ($completedTaskCount / $taskCount) * 100;
             }  
         }
+
+        if ($projects->isNotEmpty()) {
+            foreach ($projects as $project) {
+                
+                $id = $project->id;
+                $today = Carbon::now();
+                $projectTimeLeft[$id] = strtotime($project->deadline) - strtotime($today);
+                $projectTimeLeft[$id] = $projectTimeLeft[$id] / 86400;
+                $projectTimeLeft[$id] = round($projectTimeLeft[$id]);
+                if ($projectTimeLeft[$id] == 0) {
+                    $projectTimeLeft[$id] = 'Today';
+                } else if ($projectTimeLeft[$id] < 0) {
+                    $projectTimeLeft[$id] = 'Overdue';
+                }
+            }
+        } else {
+            $projectTimeLeft = null;
+        }
         
         return view ('projects/dashboard', ['projects' => $projects,
-                                            'percentage' => $percentage]);
+                                            'percentage' => $percentage,
+                                            'projectTimeLeft' => $projectTimeLeft]);
     }
 
     public function create() {

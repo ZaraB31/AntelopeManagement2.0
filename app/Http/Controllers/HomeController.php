@@ -38,17 +38,21 @@ class HomeController extends Controller
         $userTasks = TaskUser::where('user_id', $userID)->get();
         $userProjects = Project::where('user_id', $userID)->get()->sortBy('deadline');
 
-        foreach ($userTasks as $userTask) {
-            $id = $userTask->id;
-            $today = Carbon::now();
-            $taskTimeLeft[$id] = strtotime($userTask->task->deadline) - strtotime($today);
-            $taskTimeLeft[$id] = $taskTimeLeft[$id] / 86400;
-            $taskTimeLeft[$id] = round($taskTimeLeft[$id]);
-            if ($taskTimeLeft[$id] == 0) {
-                $taskTimeLeft[$id] = 'Today';
-            } else if ($taskTimeLeft[$id] < 0) {
-                $taskTimeLeft[$id] = 'Overdue';
+        if ($userTasks->isNotEmpty()){
+            foreach ($userTasks as $userTask) {
+                $id = $userTask->id;
+                $today = Carbon::now();
+                $taskTimeLeft[$id] = strtotime($userTask->task->deadline) - strtotime($today);
+                $taskTimeLeft[$id] = $taskTimeLeft[$id] / 86400;
+                $taskTimeLeft[$id] = round($taskTimeLeft[$id]);
+                if ($taskTimeLeft[$id] == 0) {
+                    $taskTimeLeft[$id] = 'Today';
+                } else if ($taskTimeLeft[$id] < 0) {
+                    $taskTimeLeft[$id] = 'Overdue';
+                }
             }
+        } else {
+            $taskTimeLeft = null;
         }
 
         if ($userProjects->isNotEmpty()) {

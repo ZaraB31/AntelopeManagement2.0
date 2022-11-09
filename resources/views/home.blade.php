@@ -50,7 +50,7 @@
             @if($projectTimeLeft[$project->id] === 'Today')
                 <td>Due {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @elseif($projectTimeLeft[$project->id] === 'OverDue')
-                <td class="overdue">project {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
+                <td style="background-color:#C20309;">project {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @else 
                 <td>Due in {{$projectTimeLeft[$project->id]}} Days ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
             @endif

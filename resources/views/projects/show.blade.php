@@ -98,7 +98,7 @@
         <tr>
             <td>{{$projectContact->contact->company->company}}</td>
             <td>{{$projectContact->contact->name}}</td>
-            <td>{{$projectContact->contact->phone}}</td>
+            <td>0{{$projectContact->contact->phone}}</td>
             <td>{{$projectContact->contact->email}}</td>
         </tr>
         @endforeach
@@ -109,8 +109,6 @@
         @endif
     </table>
 </section>
-
-
 
 
 <div class="hiddenForm" id="ProjectCompleteForm" style="display:none;">

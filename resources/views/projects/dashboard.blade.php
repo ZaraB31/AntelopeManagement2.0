@@ -8,21 +8,35 @@
 <section>
     <table class="fullTable">
         <tr>
-            <th colspan="4">Projects</th>
+            <th colspan="3">Projects</th>
             <th><button><a href="/ProjectsDashboard/create">Add New</a></button></th>
         </tr>
         @foreach($projects as $project)
+        @if($project->completed === 0 or $project->completed === 1 and $projectTimeLeft[$project->id] !== 'Overdue')
         <tr>
             <td><a href="/ProjectsDashboard/project/{{$project->id}}">{{$project->name}} <i class="fa-solid fa-arrow-right"></i></a></td>
-            <td>{{$project->company->company}}</td>
-            <td>{{$project->projectType->projectType}}</td>
+
+            @if($projectTimeLeft[$project->id] === 'Today')
+                <td>Due {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
+            @elseif($projectTimeLeft[$project->id] === 'Overdue')
+                <td style="background-color:#C20309;">Project {{$projectTimeLeft[$project->id]}} ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
+            @else 
+                <td>Due in {{$projectTimeLeft[$project->id]}} Days ( {{date('j F Y, g:i a', strtotime($project->deadline))}} )</td>
+            @endif
+
+            @if($percentage[$project->id] === 100)
+            <td style="background-color: #69C203;">{{$percentage[$project->id]}}% Completed</td>
+            @else 
             <td>{{$percentage[$project->id]}}% Completed</td>
+            @endif
+
             @if($project->completed === 1)
-            <td>Completed</td>
+            <td style="background-color: #69C203;">Completed</td>
             @else
             <td>In Progress</td>
             @endif
         </tr>
+        @endif
         @endforeach
     </table>
 </section>

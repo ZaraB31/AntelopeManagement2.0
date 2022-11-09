@@ -35,10 +35,11 @@ body {
 }
 body header {
   background-color: #738580;
-  width: 150px;
+  width: 13vw;
   height: 100vh;
   float: left;
   position: fixed;
+  min-width: 100px;
 }
 body header nav img {
   width: 100%;
@@ -73,10 +74,11 @@ body header nav ul:nth-child(odd) {
   width: 100%;
 }
 body main {
-  width: 83vw;
+  width: 82vw;
   float: left;
-  margin-left: 150px;
-  padding: 20px;
+  margin-left: 13vw;
+  margin-right: 16px;
+  padding: 2vw;
 }
 body main section {
   margin-bottom: 20px;
@@ -500,4 +502,21 @@ body main div.errorAlert {
   background-color: #C20309;
   padding: 1px;
   color: white;
+}
+@media only screen and (max-width: 900px) {
+  body main .halfSection {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 750px) {
+  body main {
+    width: 79vw;
+    margin-left: 100px;
+    padding: 2.5vw;
+  }
+}
+@media only screen and (max-width: 685px) {
+  body main {
+    width: 77vw;
+  }
 }
