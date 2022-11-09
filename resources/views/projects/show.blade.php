@@ -11,7 +11,7 @@
 <section class="buttonSection">
     <h1>{{$project->name}}</h1>
     @if($project->completed === 0)
-    <button onClick="openForm('ProjectCompleteForm')">Mark as completed</button>
+    <button onClick="openForm('ProjectCompleteForm')"><i class="fa-regular fa-square-check"></i> Mark as completed</button>
     @else
     <h2>Project completed</h2>
     @endif   
@@ -27,8 +27,8 @@
 </section>
 
 <section class="actionButtons">
-    <button class="edit"><a href="/ProjectsDashboard/project/{{$project->id}}/edit">Edit</a></button>
-    <button class="delete"><a href="">Delete</a></button>
+    <button class="edit"><a href="/ProjectsDashboard/project/{{$project->id}}/edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
+    <button class="delete"><a href=""><i class="fa-solid fa-trash-can"></i> Delete</a></button>
 </section>
 
 <section class="halfSection">
@@ -36,7 +36,7 @@
         <thead>
             <tr>
                 <th>Tasks</th>
-                <th><button onClick="openForm('CreateTaskForm')">Add New</button></th>
+                <th><button onClick="openForm('CreateTaskForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
             </tr>
         </thead> 
         <tbody colspan="2">
@@ -65,7 +65,7 @@
         <thead>
             <tr>
                 <th>Notes</th>
-                <th><button onClick="openForm('CreateNoteForm')">Add New</button></th>
+                <th><button onClick="openForm('CreateNoteForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
             </tr>
         </thead> 
         <tbody colspan="2">

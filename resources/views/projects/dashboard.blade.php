@@ -9,7 +9,7 @@
     <table class="fullTable">
         <tr>
             <th colspan="3">Projects</th>
-            <th><button><a href="/ProjectsDashboard/create">Add New</a></button></th>
+            <th><button><a href="/ProjectsDashboard/create"><i class="fa-solid fa-plus"></i> Add New</a></button></th>
         </tr>
         @if($projects->count() > 0)
         @foreach($projects as $project)

@@ -10,7 +10,7 @@
     <table>
         <tr>
             <th>System Users</th>
-            <th><button>Add New</button></th>
+            <th><button><i class="fa-solid fa-plus"></i> Add New</button></th>
         </tr>
         @foreach($users as $user)
         <tr>
@@ -37,7 +37,7 @@
     <table>
         <tr>
             <th>User Types</th>
-            <th><button onClick="openForm('UserTypeCreateForm')">Add New</button></th>
+            <th><button onClick="openForm('UserTypeCreateForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
         </tr>
         @foreach($userTypes as $userType)
         <tr>
@@ -49,7 +49,7 @@
     <table>
         <tr>
             <th>Employers</th>
-            <th><button onClick="openForm('EmployersCreateForm')">Add New</button></th>
+            <th><button onClick="openForm('EmployersCreateForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
         </tr>
         @foreach($employers as $employer)
         <tr>
@@ -61,7 +61,7 @@
     <table>
         <tr>
             <th>Project Types</th>
-            <th><button onClick="openForm('ProjectTypeCreateForm')">Add New</button></th>
+            <th><button onClick="openForm('ProjectTypeCreateForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
         </tr>
         @foreach($projectTypes as $projectType)
         <tr>
@@ -72,7 +72,7 @@
 </section>
 
 <div class="hiddenForm" id="UserTypeCreateForm" style="display:none;">
-    <h3>Add New User Type</h3>
+    <h3><i class="fa-solid fa-plus"></i> Add New User Type</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('UserTypeCreateForm')"></i>
 
     <form action="{{ route('createUserType') }}" method="post">
@@ -123,7 +123,7 @@
 </div>
 
 <div class="hiddenForm" id="EmployersCreateForm" style="display:none;">
-    <h3>Add New Employer</h3>
+    <h3><i class="fa-solid fa-plus"></i> Add New Employer</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('EmployersCreateForm')"></i>
 
     <form action="{{ route('createEmployer') }}" method="post">
@@ -174,7 +174,7 @@
 </div>
 
 <div class="hiddenForm" id="ProjectTypeCreateForm" style="display:none;">
-    <h3>Add New Project Type</h3>
+    <h3><i class="fa-solid fa-plus"></i> Add New Project Type</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeCreateForm')"></i>
 
     <form action="{{ route('createProjectType') }}" method="post">
@@ -198,7 +198,7 @@
 </div>
 
 <div class="hiddenForm" id="ProjectTypeUpdateForm" style="display:none;">
-    <h3>Add New Project Type</h3>
+    <h3><i class="fa-solid fa-plus"></i> Add New Project Type</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('ProjectTypeUpdateForm')"></i>
 
     <form action="{{ route('updateProjectType') }}" method="post">

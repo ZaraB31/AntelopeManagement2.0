@@ -11,7 +11,7 @@
 <section class="buttonSection">
     <h1>{{$task->name}}</h1>
     @if($task->completed === 0)
-    <button onClick="openForm('TaskCompleteForm')">Mark as completed</button>
+    <button onClick="openForm('TaskCompleteForm')"><i class="fa-regular fa-square-check"></i> Mark as completed</button>
     @else
     <h2>Task completed</h2>
     @endif   
@@ -25,8 +25,8 @@
 </section>
 
 <section class="actionButtons">
-    <button class="edit"><a href="/ProjectsDashboard/project/task/{{$task->id}}/edit">Edit</a></button>
-    <button class="delete"><a href="">Delete</a></button>
+    <button class="edit"><a href="/ProjectsDashboard/project/task/{{$task->id}}/edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
+    <button class="delete"><a href=""><i class="fa-solid fa-trash-can"></i> Delete</a></button>
 </section>
 
 <section class="halfSection">
@@ -83,7 +83,7 @@
         <thead>
             <tr>
                 <th>Task Documents</th>
-                <th><button onClick="openForm('TaskFileForm')">Add New</button></th>
+                <th><button onClick="openForm('TaskFileForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">

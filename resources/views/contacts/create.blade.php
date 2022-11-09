@@ -3,7 +3,7 @@
 @section('title', 'Create New Contact')
 
 @section('content')
-<h1>Add new company contact - {{$company->company}}</h1>
+<h1><i class="fa-solid fa-plus"></i> Add New company contact - {{$company->company}}</h1>
 <section>
     <form action="{{ route('storeContact') }}" method="post">
         @csrf  @include('includes.error') 

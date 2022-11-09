@@ -108,7 +108,7 @@ body main section table button a {
   color: black;
 }
 body main section table button i {
-  margin: 0 10px;
+  margin-right: 7px;
 }
 body main section table button:hover {
   background-color: #ABABAB;

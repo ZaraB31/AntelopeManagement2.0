@@ -6,7 +6,7 @@
  
 <section class="buttonSection">
     <h1>Contact Book</h1>
-    <button onClick="openForm('companyCreateForm')">Add New Company</button>
+    <button onClick="openForm('companyCreateForm')"><i class="fa-solid fa-plus"></i> Add New Company</button>
 </section>
 
 <section>
@@ -21,13 +21,14 @@
             <div class="tabLink"><p>No companies added yet</p></div>
             @endif
         </div>
+
         @foreach($companies as $company)
         <div id="{{$company->id}}" class="tabContent" style="display: none;">
             <h2>{{$company->company}} 
                 <a onClick="openEditForm('companyEditForm', '{{$company->id}}', '{{$company->company}}')"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a onClick="openDeleteForm('companyDeleteForm', '{{$company->id}}', '{{$company->company}}')"><i class="fa-solid fa-trash-can"></i></a>
             </h2> 
-            <button><a href="/Company/{{$company->id}}/Contact/create">Add New Contact</a></button>
+            <button><a href="/Company/{{$company->id}}/Contact/create"><i class="fa-solid fa-plus"></i> Add New Contact</a></button>
             
             @foreach($contacts as $contact)
             @if($contact->company_id === $company->id)
@@ -48,7 +49,7 @@
 </section>
 
 <div class="hiddenForm" id="companyCreateForm" style="display:none;">
-    <h3>Add New Company</h3>
+    <h3><i class="fa-solid fa-plus"></i> Add New Company</h3>
     <i class="fa-solid fa-xmark" onClick="closeForm('companyCreateForm')"></i>
 
     <form action="{{ route('createCompany') }}" method="post">
