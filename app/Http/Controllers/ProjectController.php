@@ -11,8 +11,11 @@ use App\Models\Employer;
 use App\Models\ProjectContact;
 use App\Models\ProjectNote;
 use App\Models\Task;
+use App\Models\TaskImage;
+use App\Models\TaskFile;
 use Auth;
 use Validator;
+use File;
 use Carbon\Carbon;
 
 
@@ -149,4 +152,32 @@ class ProjectController extends Controller
 
         return redirect()->route('showProject', $id);
     } 
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+        $project = Project::findOrFail($id);
+        $tasks = Task::all();
+        $taskImages = TaskImage::all();
+        $taskFiles = TaskFile::all();
+
+        foreach($tasks as $task) {
+            if ($task['project_id'] == $id) {
+                foreach ($taskImages as $image) {
+                    if ($image['task_id'] == $task['id']) {
+                        $filePath = 'uploads/images/';
+                        File::delete(public_path($filePath . $image['file']));
+                    }
+                }
+                foreach ($taskFiles as $doc) {
+                    if ($doc['task_id'] == $task['id']) {
+                        $filePath = 'uploads/documents/';
+                        File::delete(public_path($filePath . $doc['file']));
+                    }
+                }
+            }
+        }
+
+        $project->delete();
+        return redirect('/ProjectsDashboard');
+    }
 }

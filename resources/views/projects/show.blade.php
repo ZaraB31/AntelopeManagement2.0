@@ -28,7 +28,7 @@
 
 <section class="actionButtons">
     <button class="edit"><a href="/ProjectsDashboard/project/{{$project->id}}/edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
-    <button class="delete"><a href=""><i class="fa-solid fa-trash-can"></i> Delete</a></button>
+    <button class="delete"><a onClick="openDeleteForm('DeleteProjectForm', '{{$project->id}}', '{{$project->name}}')"><i class="fa-solid fa-trash-can"></i> Delete</a></button>
 </section>
 
 <section class="halfSection">
@@ -251,5 +251,22 @@
     </form>
 
     <button class="cancel" onClick="closeForm('UnlinkContactForm')">Cancel</button>
+</div>
+
+
+<div class="hiddenForm" id="DeleteProjectForm" style="display:none;">
+    <h3 id="title">Delete Project - </h3>
+    <p>Are you sure you want to delete this project?</p>
+    <i class="fa-solid fa-xmark" onClick="closeForm('DeleteProjectForm')"></i>
+
+    <form action="{{ route('deleteProject') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <input type="submit" value="Delete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('DeleteProjectForm')">Cancel</button>
 </div>
 @endsection
