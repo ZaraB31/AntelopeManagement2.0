@@ -57,6 +57,7 @@ Route::get('/ProjectsDashboard/project/task/{id}', [App\Http\Controllers\TaskCon
 Route::get('/ProjectsDashboard/project/task/{id}/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('editTask');
 Route::post('/ProjectsDashboard/project/task/{id}/edit', [App\Http\Controllers\TaskController::class, 'update'])->name('updateTask');
 Route::post('/ProjectsDashboard/project/task/complete', [App\Http\Controllers\TaskController::class, 'complete'])->name('completeTask');
+Route::post('/ProjectsDashboard/project/task/delete', [App\Http\Controllers\TaskController::class, 'delete'])->name('deleteTask');
 
 Route::post('/ProjectsDashboard/project/task/users', [App\Http\Controllers\TaskUserController::class, 'assignUser'])->name('assignUser');
 Route::post('/ProjectsDashboard/project/task/note', [App\Http\Controllers\TaskNoteController::class, 'store'])->name('createTaskNote');

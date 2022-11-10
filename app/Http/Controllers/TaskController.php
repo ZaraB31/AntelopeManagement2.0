@@ -11,6 +11,7 @@ use App\Models\TaskImage;
 use App\Models\TaskFile;
 use Auth;
 use Validator;
+use File;
 
 
 class TaskController extends Controller
@@ -85,4 +86,29 @@ class TaskController extends Controller
 
         return redirect()->route('showTask', $id);
     } 
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+        $task = Task::findOrFail($id);
+        $project = $task['project_id'];
+        $taskImages = TaskImage::all();
+        $taskDocs = TaskFile::all();
+
+        foreach ($taskImages as $image) {
+            if ($image['task_id'] == $id) {
+                $filePath = 'uploads/images/';
+                File::delete(public_path($filePath . $image['file']));
+            }
+        }
+        foreach ($taskDocs as $doc) {
+            if ($doc['task_id'] == $id) {
+                $filePath = 'uploads/documents/';
+                File::delete(public_path($filePath . $doc['file']));
+            }
+        }
+
+        $task->delete();
+
+        return redirect()->route('showProject', $project);
+    }
 }

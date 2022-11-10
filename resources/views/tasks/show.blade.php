@@ -26,7 +26,7 @@
 
 <section class="actionButtons">
     <button class="edit"><a href="/ProjectsDashboard/project/task/{{$task->id}}/edit"><i class="fa-solid fa-pen-to-square"></i> Edit</a></button>
-    <button class="delete"><a href=""><i class="fa-solid fa-trash-can"></i> Delete</a></button>
+    <button class="delete"><a onClick="openDeleteForm('DeleteTaskForm', '{{$task->id}}', '{{$task->name}}')"><i class="fa-solid fa-trash-can"></i> Delete</a></button>
 </section>
 
 <section class="halfSection">
@@ -34,7 +34,7 @@
         <thead>
             <tr>
                 <th>Users completeing the task</th>
-                <th><button onClick="openForm('AssignUserForm')">Assign user</button></th>
+                <th><button onClick="openForm('AssignUserForm')"><i class="fa-solid fa-plus"></i> Assign user</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
@@ -56,7 +56,7 @@
         <thead>
             <tr>
                 <th>Notes</th>
-                <th><button onClick="openForm('TaskNoteForm')">Add Note</button></th>
+                <th><button onClick="openForm('TaskNoteForm')"><i class="fa-solid fa-plus"></i> Add Note</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
@@ -83,7 +83,7 @@
         <thead>
             <tr>
                 <th>Task Documents</th>
-                <th><button onClick="openForm('TaskFileForm')"><i class="fa-solid fa-plus"></i> Add New</button></th>
+                <th><button onClick="openForm('TaskFileForm')"><i class="fa-solid fa-plus"></i> Add Document</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
@@ -116,7 +116,7 @@
         <thead>
             <tr>
                 <th>Task Image</th>
-                <th><button onClick="openForm('TaskImageForm')">Add Image</button></th>
+                <th><button onClick="openForm('TaskImageForm')"><i class="fa-solid fa-plus"></i> Add Image</button></th>
             </tr>
         </thead>
         <tbody  colspan="2">
@@ -417,5 +417,22 @@
     </form>
 
     <button class="cancel" onClick="closeForm('DeleteTaskImageForm')">Cancel</button>
+</div>
+
+
+<div class="hiddenForm" id="DeleteTaskForm" style="display:none;">
+    <h3 id="title">Delete Task - </h3>
+    <p>Are you sure you want to delete this task?</p>
+    <i class="fa-solid fa-xmark" onClick="closeForm('DeleteTaskForm')"></i>
+
+    <form action="{{ route('deleteTask') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <input type="submit" value="Delete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('DeleteTaskForm')">Cancel</button>
 </div>
 @endsection
