@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TaskFile;
 use Auth;
 use Validator;
+use File;
 
 class TaskFileController extends Controller
 {
@@ -61,5 +62,17 @@ class TaskFileController extends Controller
         $file->update($request->all());
         
         return redirect()->route('showTask', $taskID);
+    }
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+        $file = TaskFile::findOrFail($id);
+        $task = $request['task_id'];
+
+        $filePath = 'uploads/documents/';
+        File::delete(public_path($filePath . $file['file']));
+        $file->delete();
+
+        return redirect()->route('showTask', $task);
     }
 }

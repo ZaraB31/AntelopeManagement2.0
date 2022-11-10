@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
+use File;
 use App\Models\TaskImage;
 
 class TaskImageController extends Controller
@@ -61,5 +62,17 @@ class TaskImageController extends Controller
         $image->update($request->all());
         
         return redirect()->route('showTask', $taskID);
+    }
+
+    public function delete(Request $request) {
+        $id = $request['id'];
+        $image = TaskImage::findOrFail($id);
+        $task = $request['task_id'];
+
+        $filePath = 'uploads/images/';
+        File::delete(public_path($filePath . $image['file']));
+        $image->delete();
+
+        return redirect()->route('showTask', $task);
     }
 }

@@ -63,8 +63,10 @@ Route::post('/ProjectsDashboard/project/task/note', [App\Http\Controllers\TaskNo
 
 Route::post('/ProjectsDashboard/project/task/image', [App\Http\Controllers\TaskImageController::class, 'store'])->name('createTaskImage');
 Route::post('/ProjectsDashboard/project/task/image/update', [App\Http\Controllers\TaskImageController::class, 'update'])->name('updateTaskImage');
+Route::post('/ProjectsDashboard/project/task/image/delete', [App\Http\Controllers\TaskImageController::class, 'delete'])->name('deleteTaskImage');
 Route::get('/ProjectsDashboard/project/task/image/{id}', [App\Http\Controllers\TaskImageController::class, 'download'])->name('downloadTaskImage');
 
 Route::post('/ProjectsDashboard/project/task/file', [App\Http\Controllers\TaskFileController::class, 'store'])->name('createTaskFile');
 Route::get('/ProjectsDashboard/project/task/file/{id}', [App\Http\Controllers\TaskFileController::class, 'download'])->name('downloadTaskFile');
 Route::post('/ProjectsDashboard/project/task/file/update', [App\Http\Controllers\TaskFileController::class, 'update'])->name('updateTaskFile');
+Route::post('/ProjectsDashboard/project/task/file/delete', [App\Http\Controllers\TaskFileController::class, 'delete'])->name('deleteTaskFile');

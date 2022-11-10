@@ -96,7 +96,7 @@
                 <td>
                     <a href="/ProjectsDashboard/project/task/file/{{$file->id}}"><i class="fa-solid fa-circle-down"></i></a>
                     <i onClick="openEditUploadForm('UpdateTaskFileForm', '{{$file->id}}', '{{$file->name}}', '{{$file->description}}')" class="fa-solid fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i onClick="openDeleteForm('DeleteTaskFileForm', '{{$file->id}}', '{{$file->name}}')" class="fa-solid fa-trash-can"></i>
                 </td>
                 <td>{{$file->user->name}}</td>
             </tr>
@@ -129,7 +129,7 @@
                 <td>
                     <a href="/ProjectsDashboard/project/task/image/{{$image->id}}"><i class="fa-solid fa-circle-down"></i></a>
                     <i onClick="openEditUploadForm('UpdateTaskImageForm', '{{$image->id}}', '{{$image->name}}', '{{$image->description}}')" class="fa-solid fa-pen-to-square"></i>
-                    <i class="fa-solid fa-trash-can"></i>
+                    <i onClick="openDeleteForm('DeleteTaskImageForm', '{{$image->id}}', '{{$image->name}}')" class="fa-solid fa-trash-can"></i>
                 </td>
                 <td>{{$image->user->name}}</td>
             </tr>
@@ -382,4 +382,40 @@
 </div>
 
 
+<div class="hiddenForm" id="DeleteTaskFileForm" style="display:none;">
+    <h3 id="title">Delete File - </h3>
+    <p>Are you sure you want to delete this file?</p>
+    <i class="fa-solid fa-xmark" onClick="closeForm('DeleteTaskFileForm')"></i>
+
+    <form action="{{ route('deleteTaskFile') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <input type="submit" value="Delete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('DeleteTaskFileForm')">Cancel</button>
+</div>
+
+
+<div class="hiddenForm" id="DeleteTaskImageForm" style="display:none;">
+    <h3 id="title">Delete Image - </h3>
+    <p>Are you sure you want to delete this image?</p>
+    <i class="fa-solid fa-xmark" onClick="closeForm('DeleteTaskImageForm')"></i>
+
+    <form action="{{ route('deleteTaskImage') }}" method="post" enctype="multipart/form-data">
+        @csrf 
+
+        <input type="text" name="task_id" id="task_id" value="{{$task->id}}" style="display:none;">
+
+        <input type="text" name="id" id="id" style="display:none;">
+
+        <input type="submit" value="Delete">
+    </form>
+
+    <button class="cancel" onClick="closeForm('DeleteTaskImageForm')">Cancel</button>
+</div>
 @endsection
