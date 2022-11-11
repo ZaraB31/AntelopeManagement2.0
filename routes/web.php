@@ -20,6 +20,9 @@ Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'admin']);
 Route::get('/ProjectsDashboard', [App\Http\Controllers\ProjectController::class, 'index']);
 Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'index']);
 
+Route::get('/Admin/User/{id}/update', [App\Http\Controllers\HomeController::class, 'editUser']);
+Route::post('/Admin/User/update', [App\Http\Controllers\HomeController::class, 'updateUser'])->name('updateUser');
+
 Route::post('/UserType/create', [App\Http\Controllers\UserTypeController::class, 'store'])->name('createUserType');
 Route::post('/UserType/update', [App\Http\Controllers\UserTypeController::class, 'update'])->name('updateUserType');
 

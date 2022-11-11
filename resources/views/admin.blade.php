@@ -14,7 +14,8 @@
         </tr>
         @foreach($users as $user)
         <tr>
-            <td onClick="usersTableOpen({{$user->id}})" colspan="2">{{$user->name}}<i id="{{$user->id}} icon" class="fa-solid fa-chevron-down"></i></td>
+            <td onClick="usersTableOpen({{$user->id}})">{{$user->name}}<i id="{{$user->id}} icon" class="fa-solid fa-chevron-down"></i></td>
+            <td><a href="/Admin/User/{{$user->id}}/update"><i style="float:right;" class="fa-solid fa-pen-to-square"></i></a></td>
         </tr>
         <tr>
             <td id="{{$user->id}} email" class="hiddenRow" colspan="2"><b>Email: </b>{{$user->email}}</td>

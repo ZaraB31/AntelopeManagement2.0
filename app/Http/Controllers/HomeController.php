@@ -97,4 +97,29 @@ class HomeController extends Controller
                               'userDetails' => $userDetails,
                               'users' => $users]);
     }
+
+    public function editUser($id) {
+        $user = User::findOrFail($id);
+        $employers = Employer::all();
+        $userTypes = UserType::all();
+        $userDetail = UserDetail::where('user_id', $id)->first();
+
+        return view('editUser', ['user' => $user,
+                                 'employers' => $employers,
+                                 'userTypes' => $userTypes,
+                                 'userDetail' => $userDetail]);
+    }
+
+    public function updateUser(Request $request) {
+        $id = $request['id'];
+        $user = User::findOrFail($id);
+        $detail = UserDetail::where('user_id', $id)->first();
+
+        $user->update(['name' => $request['name'],
+                       'email' => $request['email']]);
+        $detail->update(['employer_id' => $request['employer_id'],
+                         'userType_id' => $request['userType_id']]);
+
+        return redirect('/Admin');
+    }
 }
