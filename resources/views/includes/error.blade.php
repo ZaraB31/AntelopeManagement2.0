@@ -1,3 +1,5 @@
+@csrf
+
 @if ($errors->any())
     <div class="errorAlert" id="errorAlert">
         <ul>

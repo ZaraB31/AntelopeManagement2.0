@@ -181,8 +181,8 @@ body {
                 .halfInput {
                     width: 49%;
                 }
-                input[type=datetime-local] {
-                    width: 97.5%;
+                select {
+                    width: 100.5%;
                 }
                 input[type=submit] {
                     width: 25%;
@@ -200,6 +200,21 @@ body {
                 input[type=submit]:hover {
                     background-color: $redHover;
                 }
+                article {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    margin-bottom: 15px;
+                    div {
+                        margin: 10px 0;
+                        width: 30%;
+                        input[type=checkbox]{
+                            width: max-content; 
+                        }
+                    }
+                }
+                
+                 
             }
             .cancelButton {
                 width: 25%;

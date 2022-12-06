@@ -89,6 +89,6 @@ body main .calendar .day h2 {
 body main .calendar .day:last-child {
   border: none;
 }
-body main .calendar .today {
-  background-color: #738580;
+body main .calendar .today h2 {
+  color: #C20309;
 }

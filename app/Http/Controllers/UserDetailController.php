@@ -35,6 +35,6 @@ class UserDetailController extends Controller
         $input = $request->all();
         UserDetail::create($input);
 
-        return redirect('/Admin');
+        return redirect('/');
     }
 }

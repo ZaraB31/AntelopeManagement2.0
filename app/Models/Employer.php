@@ -20,4 +20,8 @@ class Employer extends Model
     public function project() {
         return $this->belongsTo(Project::class);
     }
+
+    public function Schedule() {
+        return $this->belongsTo(Schedule::class);
+    }
 }

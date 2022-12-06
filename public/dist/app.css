@@ -207,8 +207,8 @@ body main section form .inputContainer {
 body main section form .halfInput {
   width: 49%;
 }
-body main section form input[type=datetime-local] {
-  width: 97.5%;
+body main section form select {
+  width: 100.5%;
 }
 body main section form input[type=submit] {
   width: 25%;
@@ -225,6 +225,20 @@ body main section form input[type=submit] {
 }
 body main section form input[type=submit]:hover {
   background-color: #F4040B;
+}
+body main section form article {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+body main section form article div {
+  margin: 10px 0;
+  width: 30%;
+}
+body main section form article div input[type=checkbox] {
+  width: -moz-max-content;
+  width: max-content;
 }
 body main section .cancelButton {
   width: 25%;

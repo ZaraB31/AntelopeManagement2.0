@@ -5,7 +5,7 @@
 @section('content')
 <img src="/images/logo.png" alt="">
 <form method="POST" action="{{ route('login') }}">
-    @csrf  @include('includes.error')
+    @include('includes.error') 
 
     <label for="email">Email Address</label>
     <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> 

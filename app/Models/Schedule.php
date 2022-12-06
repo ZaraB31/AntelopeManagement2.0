@@ -10,7 +10,7 @@ class Schedule extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'location', 'start', 'finish',
+        'name', 'description', 'location', 'start', 'finish', 'employer_id',
     ];
 
     public function ScheduleUser() {
@@ -19,5 +19,9 @@ class Schedule extends Model
 
     public function ScheduleNote() {
         return $this->belongsTo(ScheduleNote::class);
+    }
+
+    public function Employer() {
+        return $this->belongsTo(Employer::class);
     }
 }

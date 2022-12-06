@@ -53,7 +53,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('companyCreateForm')"></i>
 
     <form action="{{ route('createCompany') }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
         <label for="company">Company:</label>
         <input type="text" name="company" id="company">
 
@@ -66,7 +66,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('companyEditForm')"></i>
 
     <form action="{{ route('updateCompany') }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
 
         <input type="text" name="id" id="id" style="display: none;">
         <label for="company">Company:</label>
@@ -82,7 +82,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('contactDeleteForm')"></i>
 
     <form action="{{ route('deleteContact') }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
 
         <input type="text" name="id" id="id" style="display: none;">
 
@@ -97,7 +97,7 @@
     <i class="fa-solid fa-xmark" onClick="closeForm('companyDeleteForm')"></i>
 
     <form action="{{ route('deleteCompany') }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
 
         <input type="text" name="id" id="id" style="display: none;">
 

@@ -6,7 +6,7 @@
 <h1><i class="fa-solid fa-plus"></i> Add New Project</h1>
 <section>
     <form action="{{ route('storeProject') }}" method="post">
-        @csrf  @include('includes.error') 
+        @include('includes.error')  
 
         <label for="name">Project Title:</label>
         <input type="text" name="name" id="name">

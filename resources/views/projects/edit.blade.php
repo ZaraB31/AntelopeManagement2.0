@@ -8,7 +8,7 @@
 
 <section>
     <form action="{{ route('updateProject', $project->id) }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
 
         <input type="text" name="id" id="id" value="{{$project->id}}" style="display:none;">
 

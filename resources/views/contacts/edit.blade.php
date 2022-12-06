@@ -6,7 +6,7 @@
 <h1>Edit Contact - {{$contact->name}}</h1>
 <section>
     <form action="{{ route('updateContact', $contact->id) }}" method="post">
-        @csrf  @include('includes.error') 
+        @include('includes.error')  
 
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" value="{{$contact->name}}">

@@ -20,6 +20,7 @@ Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'admin']);
 Route::get('/ProjectsDashboard', [App\Http\Controllers\ProjectController::class, 'index']);
 Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'index']);
 Route::get('/Schedule', [App\Http\Controllers\ScheduleController::class, 'index']);
+Route::get('/Jobs', [App\Http\Controllers\ScheduleController::class, 'jobs']);
 Route::get('/Forms', [App\Http\Controllers\HomeController::class, 'forms']);
 
 Route::get('/Admin/User/{id}/update', [App\Http\Controllers\HomeController::class, 'editUser']);
@@ -77,3 +78,6 @@ Route::post('/ProjectsDashboard/project/task/file', [App\Http\Controllers\TaskFi
 Route::get('/ProjectsDashboard/project/task/file/{id}', [App\Http\Controllers\TaskFileController::class, 'download'])->name('downloadTaskFile');
 Route::post('/ProjectsDashboard/project/task/file/update', [App\Http\Controllers\TaskFileController::class, 'update'])->name('updateTaskFile');
 Route::post('/ProjectsDashboard/project/task/file/delete', [App\Http\Controllers\TaskFileController::class, 'delete'])->name('deleteTaskFile');
+
+Route::get('/Jobs/create', [App\Http\Controllers\ScheduleController::class, 'create']);
+Route::post('/Jobs/create', [App\Http\Controllers\ScheduleController::class, 'store']);

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('location');
             $table->dateTime('start');
             $table->dateTime('finish');
+            $table->foreignId('employer_id')->references('id')->on('employers')->onDelete('cascade');
             $table->timestamps();
         });
     }

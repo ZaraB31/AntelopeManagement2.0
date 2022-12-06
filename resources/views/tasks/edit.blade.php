@@ -8,7 +8,7 @@
 
 <section>
     <form action="{{ route('updateTask', $task->id) }}" method="post">
-        @csrf  @include('includes.error')
+        @include('includes.error') 
 
         <input type="text" name="id" id="id" value="{{$task->id}}" style="display:none;">
 

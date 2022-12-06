@@ -6,7 +6,7 @@
 <h1><i class="fa-solid fa-plus"></i> Add New company contact - {{$company->company}}</h1>
 <section>
     <form action="{{ route('storeContact') }}" method="post">
-        @csrf  @include('includes.error') 
+        @include('includes.error')  
 
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
