@@ -1,0 +1,94 @@
+h1, h2, h3, label, input[type=submit], th {
+  font-family: "Share", cursive;
+}
+
+h1 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3, th, label, input[type=submit] {
+  font-size: 22px;
+}
+
+p, li, button, input, textarea, a, td, select {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+a:hover, button:hover, input[type=submit]:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+}
+body header {
+  background-color: #738580;
+}
+body header nav {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+body header nav ul {
+  display: inline-flex;
+  width: 50%;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+body header nav ul a {
+  font-size: 20px;
+  padding: 35px 20px;
+  text-decoration: none;
+  color: white;
+}
+body header nav ul button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 35px 20px;
+}
+body header nav ul a:hover, body header nav ul li:hover {
+  background-color: #585858;
+  text-decoration: underline;
+  cursor: pointer;
+}
+body header img {
+  width: 100px;
+}
+body main {
+  width: 80%;
+  margin: 30px 10%;
+}
+body main .calendar {
+  width: 90%;
+  margin-left: 5%;
+  border: 2px solid #C20309;
+}
+body main .calendar .day {
+  border-bottom: 2px solid #C20309;
+  background-color: #e8f0fe;
+}
+body main .calendar .day h2 {
+  margin: 0;
+  padding: 10px;
+}
+body main .calendar .day:last-child {
+  border: none;
+}
+body main .calendar .today {
+  background-color: #738580;
+}

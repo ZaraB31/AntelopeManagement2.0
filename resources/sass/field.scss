@@ -1,0 +1,69 @@
+@import 'variables';
+
+body {
+    margin: 0;
+    header {
+        background-color: $grey;
+        nav {
+            width: 90%;
+            margin-left: 5%;
+            display: flex;
+            justify-content: space-between;
+            ul {
+                display: inline-flex;
+                width: 50%;
+                justify-content: space-evenly;
+                margin: 0;
+                padding: 0;
+                a{
+                   font-size: 20px; 
+                   padding: 35px 20px;
+                   text-decoration: none;
+                   color: white;
+                   
+                }
+                button {
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    padding: 35px 20px;
+                }
+                a:hover, li:hover {
+                    background-color: $darkGreyHover;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+        img {
+            width: 100px;
+        } 
+    }
+
+    main {
+        width: 80%;
+        margin: 30px 10%;
+
+        .calendar {
+            width: 90%;
+            margin-left: 5%;
+            border: 2px solid $red;
+            .day {
+                border-bottom: 2px solid $red;
+                background-color: $lightGrey;
+                h2 {
+                    margin: 0;
+                    padding: 10px;
+                }
+            }
+            .day:last-child {
+                border: none;
+            }
+            .today {
+                background-color: $grey;
+            }
+        }
+        
+    }
+}

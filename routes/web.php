@@ -19,6 +19,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'admin']);
 Route::get('/ProjectsDashboard', [App\Http\Controllers\ProjectController::class, 'index']);
 Route::get('/ContactBook', [App\Http\Controllers\ContactController::class, 'index']);
+Route::get('/Schedule', [App\Http\Controllers\ScheduleController::class, 'index']);
+Route::get('/Forms', [App\Http\Controllers\HomeController::class, 'forms']);
 
 Route::get('/Admin/User/{id}/update', [App\Http\Controllers\HomeController::class, 'editUser']);
 Route::post('/Admin/User/update', [App\Http\Controllers\HomeController::class, 'updateUser'])->name('updateUser');

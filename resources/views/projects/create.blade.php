@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '<i class="fa-solid fa-plus"></i> Add New Project')
+@section('title', 'Add New Project')
 
 @section('content')
 <h1><i class="fa-solid fa-plus"></i> Add New Project</h1>

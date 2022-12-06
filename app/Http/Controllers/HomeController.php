@@ -35,6 +35,7 @@ class HomeController extends Controller
     {
         $userID = Auth()->user()->id;
         $user = Auth()->user();
+        $userType = UserDetail::where('user_id', $userID)->first();
         $userTasks = TaskUser::where('user_id', $userID)->get();
         $userProjects = Project::where('user_id', $userID)->get()->sortBy('deadline');
 
@@ -76,6 +77,7 @@ class HomeController extends Controller
         return view('home', ['userTasks' => $userTasks,
                              'taskTimeLeft' => $taskTimeLeft,
                              'user' => $user,
+                             'userType' => $userType,
                              'userProjects' => $userProjects,
                              'projectTimeLeft' => $projectTimeLeft]);
     }
@@ -96,6 +98,10 @@ class HomeController extends Controller
                               'accessLevel' => $accessLevel,
                               'userDetails' => $userDetails,
                               'users' => $users]);
+    }
+
+    public function forms() {
+        return view('field/forms');
     }
 
     public function editUser($id) {
