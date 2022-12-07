@@ -69,4 +69,12 @@ class User extends Authenticatable
     public function task() {
         return $this->belongsTo(Task::class);
     }
+
+    public function ScheduleNote() {
+        return $this->belongsTo(ScheduleNote::class);
+    }
+
+    public function Schedule() {
+        return $this->belongsTo(Schedule::class);
+    }
 }

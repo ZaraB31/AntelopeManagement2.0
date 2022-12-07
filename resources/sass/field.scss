@@ -1,4 +1,7 @@
 @import 'variables';
+@import 'calendar';
+@import 'table';
+@import 'hiddenForm';
 
 body {
     margin: 0;
@@ -44,26 +47,25 @@ body {
     main {
         width: 80%;
         margin: 30px 10%;
+        h1 {
+            margin: 10px 0;
+        }
+        .hiddenForm {
+            top: 10%;
+            left: 23%;
+        }
 
-        .calendar {
-            width: 90%;
-            margin-left: 5%;
-            border: 2px solid $red;
-            .day {
-                border-bottom: 2px solid $red;
-                background-color: $lightGrey;
-                h2 {
-                    margin: 0;
-                    padding: 10px;
-                }
-            }
-            .day:last-child {
-                border: none;
-            }
-            .today h2{
-                color: $red;
+        @media only screen and (max-width: 950px) {
+            .halfSection {
+                width: 100%;
             }
         }
         
+    }
+    @media only screen and (max-width: 830px) {
+        main {
+            width: 90%;
+            margin: 20px 5%;
+        }
     }
 }

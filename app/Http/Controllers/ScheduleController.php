@@ -7,12 +7,23 @@ use Carbon\Carbon;
 use Auth;
 use App\Models\Schedule;
 use App\Models\ScheduleUser;
+use App\Models\ScheduleNote;
 use App\Models\UserDetail;
 use App\Models\Employer;
 use App\Models\User;
 
 class ScheduleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index() {
         return view ('field/schedule');  
     }
@@ -80,10 +91,12 @@ class ScheduleController extends Controller
                 foreach ($jobs as $job) {
                     
                     if (date('d-m-Y', strtotime($job->start)) === $startOfCalendar->format('d-m-Y')) {
-                        $html .= '<div class="job"> 
-                                  <h3>' . $job['name'] . '</h3>
-                                  <a href="/Jobs/'.$job['id'].'">More Details</a> 
-                                  </div>';
+                        $html .= '<div class="job"> <div> 
+                                    <h3>' . $job['name'] . '</h3>
+                                    <p>' . $job['location'] . '</p>
+                                    <p> Start Time: ' . date('g:i A', strtotime($job->start)) . '</p> </div>
+                                    <a href="/Jobs/'.$job['id'].'"><button>More Details</button></a> 
+                                    </div>';
                     }
                 } 
             } elseif ($userType['userType_id'] === 3) {
@@ -91,21 +104,42 @@ class ScheduleController extends Controller
                     $jobSchedules = ScheduleUser::where('schedule_id', $job['id'])->get();
                     foreach ($jobSchedules as $jobSchedule) {
                         if ($jobSchedule['user_id'] === $user && date('d-m-Y', strtotime($job->start)) === $startOfCalendar->format('d-m-Y')) {
-                            $html .= '<div class="job"> 
+                            $html .= '<div class="job"> <div> 
                                       <h3>' . $job['name'] . '</h3>
-                                      <a href="/Schedule/'.$job['id'].'">More Details</a> 
+                                      <p>' . $job['location'] . '</p>
+                                      <p> Start Time: ' . date('g:i A', strtotime($job->start)) . '</p> </div>
+                                      <a href="/Schedule/'.$job['id'].'"><button>More Details</button></a> 
                                       </div>';
                         }
                     }
                     
                 }
             }
-
             $html .= '</div>';
             $startOfCalendar->addDay();
         }
 
         $html .= '</div>';
         echo $html;
+    }
+
+    public function show($id) {
+        $job = Schedule::findOrFail($id);
+        $jobUsers = ScheduleUser::where('schedule_id', $id)->get();
+        $jobNotes = ScheduleNote::where('schedule_id', $id)->get()->sortBy('created_at');
+
+        return view ('jobs/show', ['job' => $job,
+                                   'jobUsers' => $jobUsers,
+                                   'jobNotes' => $jobNotes]);
+    }
+
+    public function scheduleShow($id) {
+        $job = Schedule::findOrFail($id);
+        $jobUsers = ScheduleUser::where('schedule_id', $id)->get();
+        $jobNotes = ScheduleNote::where('schedule_id', $id)->get()->sortBy('created_at');
+
+        return view ('field/scheduleShow', ['job' => $job,
+                                            'jobUsers' => $jobUsers,
+                                            'jobNotes' => $jobNotes]);
     }
 }

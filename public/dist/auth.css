@@ -29,6 +29,24 @@ li {
   list-style-type: none;
 }
 
+.halfSection {
+  width: 49%;
+  margin-right: 1%;
+  float: left;
+}
+
+.backButton {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.backButton a {
+  color: black;
+  text-decoration: none;
+}
+.backButton a:hover {
+  text-decoration: underline;
+}
+
 body {
   background-color: #738580;
 }

@@ -1,0 +1,42 @@
+.calendar {
+    width: 90%;
+    margin-left: 5%;
+    border: 2px solid $darkGrey;
+    .day {
+        border-bottom: 2px solid $darkGrey;
+        background-color: $blueGrey;
+        h2 {
+            margin: 0;
+            padding: 10px;
+        }
+        .job {
+            background-color: $grey;
+            width: 86%;
+            margin-left: 5%;
+            padding: 10px 2%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            div {
+                h3, p {
+                    margin: 0;
+                }
+            }
+            button {
+                background-color: $red;
+                border: none;
+                color: white;
+                padding: 5px 8px;
+                border-radius: 3px;
+            }
+        }
+    }
+    .day:last-child {
+        border: none;
+    }
+    .today h2{
+        color: $red;
+    }
+}

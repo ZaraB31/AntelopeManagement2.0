@@ -81,3 +81,7 @@ Route::post('/ProjectsDashboard/project/task/file/delete', [App\Http\Controllers
 
 Route::get('/Jobs/create', [App\Http\Controllers\ScheduleController::class, 'create']);
 Route::post('/Jobs/create', [App\Http\Controllers\ScheduleController::class, 'store']);
+Route::get('/Jobs/{id}', [App\Http\Controllers\ScheduleController::class, 'show'])->name('jobShow');
+
+Route::get('/Schedule/{id}', [App\Http\Controllers\ScheduleController::class, 'scheduleShow'])->name('fieldShow');
+Route::post('/Schedule/note', [App\Http\Controllers\ScheduleNoteController::class, 'scheduleStore'])->name('createScheduleNote');

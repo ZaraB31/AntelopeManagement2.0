@@ -29,6 +29,257 @@ li {
   list-style-type: none;
 }
 
+.halfSection {
+  width: 49%;
+  margin-right: 1%;
+  float: left;
+}
+
+.backButton {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.backButton a {
+  color: black;
+  text-decoration: none;
+}
+.backButton a:hover {
+  text-decoration: underline;
+}
+
+.calendar {
+  width: 90%;
+  margin-left: 5%;
+  border: 2px solid #3E3E3E;
+}
+.calendar .day {
+  border-bottom: 2px solid #3E3E3E;
+  background-color: #C4C4C4;
+}
+.calendar .day h2 {
+  margin: 0;
+  padding: 10px;
+}
+.calendar .day .job {
+  background-color: #738580;
+  width: 86%;
+  margin-left: 5%;
+  padding: 10px 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+.calendar .day .job div h3, .calendar .day .job div p {
+  margin: 0;
+}
+.calendar .day .job button {
+  background-color: #C20309;
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+.calendar .day:last-child {
+  border: none;
+}
+.calendar .today h2 {
+  color: #C20309;
+}
+
+table {
+  border-collapse: collapse;
+  color: white;
+  margin-bottom: 20px;
+  width: 100%;
+}
+table th {
+  text-align: left;
+  padding: 14px 8px;
+  background-color: #3E3E3E;
+}
+table button {
+  float: right;
+  background-color: #C4C4C4;
+  border: none;
+  padding: 2px 10px;
+}
+table button a {
+  text-decoration: none;
+  color: black;
+}
+table button i {
+  margin-right: 7px;
+}
+table button:hover {
+  background-color: #ABABAB;
+}
+table td {
+  background-color: #738580;
+  padding: 8px;
+  border-bottom: 2px solid #3E3E3E;
+}
+table td i {
+  margin: 0 10px;
+}
+table td i:hover {
+  cursor: pointer;
+}
+table td a {
+  color: white;
+  text-decoration: none;
+}
+table .noteContent td {
+  background-color: #C4C4C4;
+  color: black;
+}
+table .hiddenRow {
+  background-color: #C4C4C4;
+  color: black;
+  display: none;
+}
+table .hiddenRow.open {
+  display: table-cell;
+}
+table .animate {
+  transform: rotate(180deg);
+  margin-top: 5px;
+}
+
+.tableHeight thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.tableHeight tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.tableHeight tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.tableHeight ::-webkit-scrollbar {
+  width: 10px;
+}
+.tableHeight ::-webkit-scrollbar-track {
+  background: #e8f0fe;
+}
+.tableHeight ::-webkit-scrollbar-thumb {
+  background: #C20309;
+}
+.tableHeight ::-webkit-scrollbar-thumb:hover {
+  background: #F4040B;
+}
+
+.fullTable {
+  width: 100%;
+}
+
+.halfTable {
+  width: 49%;
+  margin-right: 1%;
+  float: left;
+}
+
+.threeTable {
+  width: 70%;
+  margin-right: 1%;
+  float: left;
+}
+
+.hiddenForm {
+  background-color: #C4C4C4;
+  width: 50vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+  padding: 0 20px;
+  position: fixed;
+}
+.hiddenForm h1 {
+  margin-top: 20px;
+}
+.hiddenForm button {
+  width: 40%;
+  margin-left: 30%;
+  background-color: #C20309;
+  margin-bottom: 10px;
+  border: none;
+  color: white;
+}
+.hiddenForm .cancel, .hiddenForm .back {
+  width: 40%;
+  background-color: #3E3E3E;
+  font-size: 17px;
+  border: none;
+  color: white;
+  padding: 3px;
+  margin-top: 5px;
+  margin-left: 0;
+}
+.hiddenForm .back {
+  background-color: #C20309;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 20px;
+}
+.hiddenForm .back a {
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+}
+.hiddenForm .back:hover {
+  background-color: #F4040B;
+}
+.hiddenForm .cancel:hover {
+  background-color: #585858;
+}
+.hiddenForm i {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  margin-top: 1em;
+  font-size: 22px;
+}
+.hiddenForm i:hover {
+  cursor: pointer;
+}
+.hiddenForm form {
+  width: 100%;
+}
+.hiddenForm form label {
+  margin-bottom: 5px;
+}
+.hiddenForm form input, .hiddenForm form textarea {
+  width: 99.3%;
+  margin-top: 5px;
+  border: none;
+  background-color: #738580;
+  margin-bottom: 1em;
+  color: white;
+  padding: 4px;
+  cursor: pointer;
+}
+.hiddenForm form textarea {
+  height: 150px;
+}
+.hiddenForm form select {
+  width: 100%;
+  border: none;
+  padding: 4px;
+  margin-bottom: 10px;
+}
+.hiddenForm form input[type=submit] {
+  width: 40%;
+  float: right;
+  background-color: #C20309;
+}
+.hiddenForm form input[type=submit]:hover {
+  background-color: #F4040B;
+}
+
 body {
   margin: 0;
   overflow-x: hidden;
@@ -85,104 +336,6 @@ body main section {
 }
 body main section article {
   width: 100%;
-}
-body main section table {
-  border-collapse: collapse;
-  color: white;
-  margin-bottom: 20px;
-  width: 100%;
-}
-body main section table th {
-  text-align: left;
-  padding: 14px 8px;
-  background-color: #3E3E3E;
-}
-body main section table button {
-  float: right;
-  background-color: #C4C4C4;
-  border: none;
-  padding: 2px 10px;
-}
-body main section table button a {
-  text-decoration: none;
-  color: black;
-}
-body main section table button i {
-  margin-right: 7px;
-}
-body main section table button:hover {
-  background-color: #ABABAB;
-}
-body main section table td {
-  background-color: #738580;
-  padding: 8px;
-  border-bottom: 2px solid #3E3E3E;
-}
-body main section table td i {
-  margin: 0 10px;
-}
-body main section table td i:hover {
-  cursor: pointer;
-}
-body main section table td a {
-  color: white;
-  text-decoration: none;
-}
-body main section table .noteContent td {
-  background-color: #C4C4C4;
-  color: black;
-}
-body main section table .hiddenRow {
-  background-color: #C4C4C4;
-  color: black;
-  display: none;
-}
-body main section table .hiddenRow.open {
-  display: table-cell;
-}
-body main section table .animate {
-  transform: rotate(180deg);
-  margin-top: 5px;
-}
-body main section .tableHeight thead {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-body main section .tableHeight tbody {
-  display: block;
-  max-height: 400px;
-  overflow-y: scroll;
-}
-body main section .tableHeight tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-body main section .tableHeight ::-webkit-scrollbar {
-  width: 10px;
-}
-body main section .tableHeight ::-webkit-scrollbar-track {
-  background: #e8f0fe;
-}
-body main section .tableHeight ::-webkit-scrollbar-thumb {
-  background: #C20309;
-}
-body main section .tableHeight ::-webkit-scrollbar-thumb:hover {
-  background: #F4040B;
-}
-body main section .fullTable {
-  width: 100%;
-}
-body main section .halfTable {
-  width: 49%;
-  margin-right: 1%;
-  float: left;
-}
-body main section .threeTable {
-  width: 70%;
-  margin-right: 1%;
-  float: left;
 }
 body main section form {
   width: 100%;
@@ -255,17 +408,6 @@ body main section .cancelButton a {
 body main section .cancelButton:hover {
   background-color: #585858;
 }
-body main .backButton {
-  width: 100%;
-  margin-bottom: 5px;
-}
-body main .backButton a {
-  color: black;
-  text-decoration: none;
-}
-body main .backButton a:hover {
-  text-decoration: underline;
-}
 body main .buttonSection {
   margin-bottom: 15px;
   width: 100%;
@@ -318,101 +460,6 @@ body main .actionButtons .delete {
   background-color: #C20309;
 }
 body main .actionButtons .delete:hover {
-  background-color: #F4040B;
-}
-body main .halfSection {
-  width: 49%;
-  margin-right: 1%;
-  float: left;
-}
-body main .hiddenForm {
-  background-color: #C4C4C4;
-  width: 50vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
-  padding: 0 20px;
-  position: fixed;
-  top: 10%;
-  left: 27.5%;
-}
-body main .hiddenForm h1 {
-  margin-top: 20px;
-}
-body main .hiddenForm button {
-  width: 40%;
-  margin-left: 30%;
-  background-color: #C20309;
-  margin-bottom: 10px;
-  border: none;
-  color: white;
-}
-body main .hiddenForm .cancel, body main .hiddenForm .back {
-  width: 40%;
-  background-color: #3E3E3E;
-  font-size: 17px;
-  border: none;
-  color: white;
-  padding: 3px;
-  margin-top: 5px;
-  margin-left: 0;
-}
-body main .hiddenForm .back {
-  background-color: #C20309;
-  width: 80%;
-  margin-left: 10%;
-  margin-bottom: 20px;
-}
-body main .hiddenForm .back a {
-  color: white;
-  font-size: 17px;
-  text-decoration: none;
-}
-body main .hiddenForm .back:hover {
-  background-color: #F4040B;
-}
-body main .hiddenForm .cancel:hover {
-  background-color: #585858;
-}
-body main .hiddenForm i {
-  position: absolute;
-  top: 0;
-  right: 20px;
-  margin-top: 1em;
-  font-size: 22px;
-}
-body main .hiddenForm i:hover {
-  cursor: pointer;
-}
-body main .hiddenForm form {
-  width: 100%;
-}
-body main .hiddenForm form label {
-  margin-bottom: 5px;
-}
-body main .hiddenForm form input, body main .hiddenForm form textarea {
-  width: 99.3%;
-  margin-top: 5px;
-  border: none;
-  background-color: #738580;
-  margin-bottom: 1em;
-  color: white;
-  padding: 4px;
-  cursor: pointer;
-}
-body main .hiddenForm form textarea {
-  height: 150px;
-}
-body main .hiddenForm form select {
-  width: 100%;
-  border: none;
-  padding: 4px;
-  margin-bottom: 10px;
-}
-body main .hiddenForm form input[type=submit] {
-  width: 40%;
-  float: right;
-  background-color: #C20309;
-}
-body main .hiddenForm form input[type=submit]:hover {
   background-color: #F4040B;
 }
 body main .projectDetails {
@@ -523,6 +570,10 @@ body main div.errorAlert {
   background-color: #C20309;
   padding: 1px;
   color: white;
+}
+body main .hiddenForm {
+  top: 10%;
+  left: 27.5%;
 }
 @media only screen and (max-width: 900px) {
   body main .halfSection {

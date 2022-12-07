@@ -1,0 +1,102 @@
+table {
+    border-collapse: collapse;
+    color: white;
+    margin-bottom: 20px;
+    width: 100%;
+    th {
+        text-align: left;
+        padding: 14px 8px;
+        background-color: $darkGrey;   
+    }
+    button {
+        float: right;
+        background-color: $blueGrey;
+        border: none;
+        padding: 2px 10px;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        i {
+            margin-right: 7px;
+        }
+    }
+    button:hover {
+        background-color: #ABABAB;
+    }
+    td {
+        background-color: $grey;
+        padding: 8px;
+        border-bottom: 2px solid $darkGrey;
+        i {
+            margin: 0 10px;
+        }
+        i:hover {
+            cursor: pointer;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+    .noteContent td{
+        background-color: $blueGrey;
+        color: black;
+    }
+    .hiddenRow {
+        background-color: $blueGrey;
+        color: black;
+        display: none;
+    }
+    .hiddenRow.open {
+        display: table-cell;
+    }
+    .animate {
+        transform: rotate(180deg);
+        margin-top: 5px;
+    }
+    
+}
+.tableHeight {
+    thead {
+        display: table; 
+        width: 100%;
+        table-layout: fixed;
+    }
+    tbody {
+        display: block; 
+        max-height: 400px; 
+        overflow-y: scroll;
+        tr {
+            display: table; 
+            width: 100%;
+            table-layout: fixed;
+            
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: $lightGrey 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $red; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: $redHover; 
+    }
+}
+.fullTable {
+    width: 100%;
+}
+.halfTable {
+    width: 49%;
+    margin-right: 1%;
+    float: left;
+}
+.threeTable {
+    width: 70%;
+    margin-right: 1%;
+    float: left;
+}
